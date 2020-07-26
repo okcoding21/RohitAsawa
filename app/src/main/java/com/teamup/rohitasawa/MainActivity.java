@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitNotification.createNotif(getApplicationContext(),title,message);
 
-//        RohitToast.showToast(getApplicationContext(),"Notification Sent", "#FD6301");
+        RohitToast.showToast(getApplicationContext(),"Notification Sent", "#FD6301");
 
 //        RohitDialog.showDialog(MainActivity.this,"This is title","This will be message!!", "okay");
 
