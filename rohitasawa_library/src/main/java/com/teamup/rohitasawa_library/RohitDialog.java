@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 public class RohitDialog {
 
-    public static void showDialog(Context context, String title, String message) {
+    public static void showDialog(Context context, String title, String message, String buttonName) {
         try {
 
 
@@ -15,7 +15,7 @@ public class RohitDialog {
                     .setMessage(""+message)
                     .setTitle(""+title)
                     .setCancelable(false)
-                    .setPositiveButton("yes", null)
+                    .setPositiveButton(buttonName, null)
                     .show();
 
         } catch (Exception g) {
