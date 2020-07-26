@@ -6,10 +6,10 @@
     android:gravity="center"
     android:layout_height="wrap_content">
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:background="@android:color/white"
+        app:cardCornerRadius="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -18,7 +18,7 @@
             android:orientation="vertical"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <pl.droidsonroids.gif.GifImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="15dp"
@@ -53,6 +53,6 @@
 
         </LinearLayout>
 
-    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
