@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.widget.Toast;
 
-import com.marcoscg.materialtoast.MaterialToast;
 
 public class RohitToast {
 
@@ -13,7 +12,7 @@ public class RohitToast {
         try {
 
 
-        new MaterialToast(context)
+        new cctoast(context)
                 .setMessage(title)
                 .setDuration(Toast.LENGTH_SHORT)
                 .setBackgroundColor(Color.parseColor(hexColor))

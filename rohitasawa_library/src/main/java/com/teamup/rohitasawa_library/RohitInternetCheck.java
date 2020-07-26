@@ -1,10 +1,11 @@
 package com.teamup.rohitasawa_library;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class RohitInternetCheck {
 
@@ -20,7 +21,7 @@ public class RohitInternetCheck {
             connected = false;
 
             Commons.context = context;
-            ((Activity)context).finish();
+            ((AppCompatActivity)context).finish();
             context.startActivity(new Intent(context, NoInternetConnection.class));
 
         }

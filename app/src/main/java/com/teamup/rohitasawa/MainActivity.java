@@ -22,10 +22,14 @@ import android.os.Handler;
 import android.provider.SyncStateContract;
 import android.widget.Button;
 
+import com.teamup.rohitasawa_library.RohitCall;
 import com.teamup.rohitasawa_library.RohitDialog;
+import com.teamup.rohitasawa_library.RohitFeedbackGmail;
 import com.teamup.rohitasawa_library.RohitInternetCheck;
 import com.teamup.rohitasawa_library.RohitNotification;
 import com.teamup.rohitasawa_library.RohitPleaseWait;
+import com.teamup.rohitasawa_library.RohitSMS;
+import com.teamup.rohitasawa_library.RohitShareApp;
 import com.teamup.rohitasawa_library.RohitToast;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitNotification.createNotif(getApplicationContext(),title,message);
 
-        RohitToast.showToast(getApplicationContext(),"Notification Sent", "#FD6301");
+//        RohitToast.showToast(getApplicationContext(),"Notification Sent", "#FD6301");
 
 //        RohitDialog.showDialog(MainActivity.this,"This is title","This will be message!!", "okay");
 
@@ -59,9 +63,18 @@ public class MainActivity extends AppCompatActivity {
 //        }, 4000);
 
 
-        RohitInternetCheck.checkInternet(this);
+//        RohitInternetCheck.checkInternet(this);
+
+
+//        RohitCall.call(getApplicationContext(),"7387191410");
+
+
+//        RohitSMS.sms(getApplicationContext(),"7387191410", "Hello buddy!!");
 
 
 
+//                RohitShareApp.shareApp(MainActivity.this, "Hey i recommend you this app!!!\n\n");
+
+//        RohitFeedbackGmail.takeFeedback(MainActivity.this, "Feedback from app : ", "teamup.developer@gmail.com");
     }
 }
