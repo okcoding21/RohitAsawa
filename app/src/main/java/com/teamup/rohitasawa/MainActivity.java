@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitDialog.showDialog(MainActivity.this,"This is title","This will be message!!", "okay");
 
-//        RohitPleaseWait.showDialog(this, "Loading..");
+        RohitPleaseWait.showDialog(this, "Loading..");
 //
 //        new Handler().postDelayed(new Runnable() {
 //            @Override
