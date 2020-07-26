@@ -31,6 +31,7 @@ import com.teamup.rohitasawa_library.RohitPleaseWait;
 import com.teamup.rohitasawa_library.RohitSMS;
 import com.teamup.rohitasawa_library.RohitShareApp;
 import com.teamup.rohitasawa_library.RohitToast;
+import com.teamup.rohitasawa_library.RohitWhatsappToNo;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -76,5 +77,11 @@ public class MainActivity extends AppCompatActivity {
 //                RohitShareApp.shareApp(MainActivity.this, "Hey i recommend you this app!!!\n\n");
 
 //        RohitFeedbackGmail.takeFeedback(MainActivity.this, "Feedback from app : ", "teamup.developer@gmail.com");
+
+//        RohitWhatsappToNo.sendToNo(MainActivity.this,"7387191410","Hello Buddy!!");
+
+
+
+
     }
 }
