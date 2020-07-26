@@ -1,2 +1,2 @@
-include ':app', ':rohitasawa_library', ':cardview-1.0.0-rc02'
+include ':app', ':rohitasawa_library'
 rootProject.name='RohitAsawa'
