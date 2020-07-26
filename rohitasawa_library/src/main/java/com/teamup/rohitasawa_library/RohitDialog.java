@@ -2,7 +2,6 @@ package com.teamup.rohitasawa_library;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.widget.Toast;
 
 public class RohitDialog {
