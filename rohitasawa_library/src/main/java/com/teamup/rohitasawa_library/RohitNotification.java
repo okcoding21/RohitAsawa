@@ -30,7 +30,7 @@ public class RohitNotification {
                     .setSound(uri)
 //                .addAction(android.R.drawable.sym_action_chat,"Title",pendingIntent)
                     .setChannelId(CHANNEL_ID)
-                    .setSmallIcon(android.R.drawable.sym_action_chat)
+                    .setSmallIcon(android.R.drawable.ic_notification_overlay)
                     .build();
 
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
