@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
 //        RohitSMS.sms(getApplicationContext(),"7387191410", "Hello buddy!!");
 
 
-
 //                RohitShareApp.shareApp(MainActivity.this, "Hey i recommend you this app!!!\n\n");
 
 //        RohitFeedbackGmail.takeFeedback(MainActivity.this, "Feedback from app : ", "teamup.developer@gmail.com");
@@ -78,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
 //        RohitRandomString.generateLOWECASE(5);
 
 //        RohitRandomString.generateUPPERCASE(5);
+
+
+
 
     }
 }
