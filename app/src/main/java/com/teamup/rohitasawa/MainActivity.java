@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.teamup.rohitasawa_library.Commons;
+import com.teamup.rohitasawa_library.RohitCopyPaste;
 import com.teamup.rohitasawa_library.RohitCurrentDate;
 import com.teamup.rohitasawa_library.RohitNotification;
+import com.teamup.rohitasawa_library.RohitOpenUrl;
 import com.teamup.rohitasawa_library.RohitRandomNumber;
 import com.teamup.rohitasawa_library.RohitRandomString;
 
@@ -34,9 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                RohitNotification.createNotif(getApplicationContext(),"hello","buffy");
 
-                Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -85,6 +85,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 //        RohitCurrentDate.getDate();
+
+//        RohitCopyPaste.copyText(getApplicationContext(),"Hello World!!");
+
+//        RohitCopyPaste.pasteText(
+//                getApplicationContext()
+//        );										//returns string
+
+
+//        RohitOpenUrl.openUrl(getApplicationContext(),"http://rohitasawa.c1.biz");
+
 
     }
 }
