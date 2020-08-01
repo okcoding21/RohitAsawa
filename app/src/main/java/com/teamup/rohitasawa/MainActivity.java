@@ -14,8 +14,10 @@ import com.teamup.rohitasawa_library.RohitCopyPaste;
 import com.teamup.rohitasawa_library.RohitCurrentDate;
 import com.teamup.rohitasawa_library.RohitNotification;
 import com.teamup.rohitasawa_library.RohitOpenUrl;
+import com.teamup.rohitasawa_library.RohitPlayBeep;
 import com.teamup.rohitasawa_library.RohitRandomNumber;
 import com.teamup.rohitasawa_library.RohitRandomString;
+import com.teamup.rohitasawa_library.RohitToast;
 import com.teamup.rohitasawa_library.RohitVibrate;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
+
+
 
             }
         });
@@ -46,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitNotification.createNotif(getApplicationContext(),title,message);
 
-//        RohitToast.showToast(getApplicationContext(),"Notification Sent", "#FD6301");
+        RohitToast.showToast(getApplicationContext(),"Notification Sent", "#FD6301");
 
 //        RohitDialog.showDialog(MainActivity.this,"This is title","This will be message!!", "okay");
 
@@ -99,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
 //        RohitOpenUrl.openUrl(getApplicationContext(),"http://rohitasawa.c1.biz");
 
 //        RohitVibrate.virate(getApplicationContext(), 500);
+
+//        RohitPlayBeep.playBeep(MainActivity.this);
 
     }
 }
