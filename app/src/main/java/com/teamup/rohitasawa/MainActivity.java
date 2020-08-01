@@ -16,6 +16,7 @@ import com.teamup.rohitasawa_library.RohitNotification;
 import com.teamup.rohitasawa_library.RohitOpenUrl;
 import com.teamup.rohitasawa_library.RohitRandomNumber;
 import com.teamup.rohitasawa_library.RohitRandomString;
+import com.teamup.rohitasawa_library.RohitVibrate;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitCurrentDate.getTime();
 
+//        RohitCurrentDate.getDateTimeInFormat("MMM-yyyy")
 
 //        RohitCurrentDate.getDate();
 
@@ -95,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitOpenUrl.openUrl(getApplicationContext(),"http://rohitasawa.c1.biz");
 
+//        RohitVibrate.virate(getApplicationContext(), 500);
 
     }
 }
