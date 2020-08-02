@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.teamup.rohitasawa_library.Commons;
+import com.teamup.rohitasawa_library.RohitApi;
 import com.teamup.rohitasawa_library.RohitCopyPaste;
 import com.teamup.rohitasawa_library.RohitCurrentDate;
 import com.teamup.rohitasawa_library.RohitNotification;
@@ -39,9 +40,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-
-
+                
             }
         });
 
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitNotification.createNotif(getApplicationContext(),title,message);
 
-        RohitToast.showToast(getApplicationContext(),"Notification Sent", "#FD6301");
+//        RohitToast.showToast(getApplicationContext(),"Notification Sent", "#FD6301");
 
 //        RohitDialog.showDialog(MainActivity.this,"This is title","This will be message!!", "okay");
 
@@ -104,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
 //        RohitVibrate.virate(getApplicationContext(), 500);
 
 //        RohitPlayBeep.playBeep(MainActivity.this);
+
+//        RohitApi.integrateWithThisApp(MainActivity.this, 0,"AYX54544824");
+
 
     }
 }
