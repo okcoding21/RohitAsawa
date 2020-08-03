@@ -14,11 +14,13 @@ import com.teamup.rohitasawa_library.RohitApi;
 import com.teamup.rohitasawa_library.RohitApiB;
 import com.teamup.rohitasawa_library.RohitCopyPaste;
 import com.teamup.rohitasawa_library.RohitCurrentDate;
+import com.teamup.rohitasawa_library.RohitErrorDialog;
 import com.teamup.rohitasawa_library.RohitNotification;
 import com.teamup.rohitasawa_library.RohitOpenUrl;
 import com.teamup.rohitasawa_library.RohitPlayBeep;
 import com.teamup.rohitasawa_library.RohitRandomNumber;
 import com.teamup.rohitasawa_library.RohitRandomString;
+import com.teamup.rohitasawa_library.RohitSuccessDialog;
 import com.teamup.rohitasawa_library.RohitToast;
 import com.teamup.rohitasawa_library.RohitVibrate;
 
@@ -41,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                
+                RohitErrorDialog.showDialog(MainActivity.this,"Order Placed","Order is placed successfully..");
+
 
             }
         });
@@ -110,4 +113,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (RohitErrorDialog.dialogColsed)
+        {
+            Toast.makeText(this, "dialog closed", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 }
