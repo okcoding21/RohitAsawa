@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.teamup.rohitasawa_library.Commons;
 import com.teamup.rohitasawa_library.RohitApi;
 import com.teamup.rohitasawa_library.RohitApiB;
+import com.teamup.rohitasawa_library.RohitBlueLoadingDialog;
 import com.teamup.rohitasawa_library.RohitCopyPaste;
 import com.teamup.rohitasawa_library.RohitCurrentDate;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                
 
             }
         });
@@ -113,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
 //        RohitErrorDialog.showDialog(MainActivity.this,"Order Placed","Order is placed successfully..");
 
 //        RohitSuccessDialog.showDialog(MainActivity.this,"Order Placed","Order is placed successfully..");
+
+//        RohitBlueLoadingDialog.showDialog(MainActivity.this);
 
 
     }
