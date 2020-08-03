@@ -43,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                RohitErrorDialog.showDialog(MainActivity.this,"Order Placed","Order is placed successfully..");
-
+                
 
             }
         });
@@ -110,6 +109,10 @@ public class MainActivity extends AppCompatActivity {
 //        RohitPlayBeep.playBeep(MainActivity.this);
 
 //        RohitApi.integrateWithThisApp(MainActivity.this, 0,"AYX54544824");
+
+//        RohitErrorDialog.showDialog(MainActivity.this,"Order Placed","Order is placed successfully..");
+
+//        RohitSuccessDialog.showDialog(MainActivity.this,"Order Placed","Order is placed successfully..");
 
 
     }
