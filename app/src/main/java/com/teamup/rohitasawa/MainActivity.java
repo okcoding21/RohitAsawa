@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import com.teamup.rohitasawa_library.RohitCurrentDate;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
 import com.teamup.rohitasawa_library.RohitNotification;
 import com.teamup.rohitasawa_library.RohitOpenUrl;
+import com.teamup.rohitasawa_library.RohitPermissions;
 import com.teamup.rohitasawa_library.RohitPlayBeep;
 import com.teamup.rohitasawa_library.RohitRandomNumber;
 import com.teamup.rohitasawa_library.RohitRandomString;
@@ -52,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                 String permissions[] = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
+                RohitPermissions.askPermissions(MainActivity.this, permissions);
+
+                RohitPermissions.GPS_PERMISSIONS(MainActivity.this, 8885);
 
             }
         });
