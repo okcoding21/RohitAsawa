@@ -28,6 +28,7 @@ import com.teamup.rohitasawa_library.RohitRandomNumber;
 import com.teamup.rohitasawa_library.RohitRandomString;
 import com.teamup.rohitasawa_library.RohitSecurity;
 import com.teamup.rohitasawa_library.RohitSuccessDialog;
+import com.teamup.rohitasawa_library.RohitTextToSpeech;
 import com.teamup.rohitasawa_library.RohitToast;
 import com.teamup.rohitasawa_library.RohitTorch;
 import com.teamup.rohitasawa_library.RohitVibrate;
@@ -54,10 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                 String permissions[] = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
-                RohitPermissions.askPermissions(MainActivity.this, permissions);
 
-                RohitPermissions.GPS_PERMISSIONS(MainActivity.this, 8885);
 
             }
         });
@@ -136,6 +134,12 @@ public class MainActivity extends AppCompatActivity {
 //        RohitTorch.stop(MainActivity.this);
 
 
+//        String permissions[] = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
+//        RohitPermissions.askPermissions(MainActivity.this, permissions);
+//
+//        RohitPermissions.GPS_PERMISSIONS(MainActivity.this, 8885);
+
+//        RohitTextToSpeech.speak(MainActivity.this,"Hello Rohit");
 
     }
 
