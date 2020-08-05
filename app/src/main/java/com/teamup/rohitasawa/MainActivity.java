@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.accounts.AccountManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
@@ -22,6 +23,7 @@ import com.teamup.rohitasawa_library.RohitBlueLoadingDialog;
 import com.teamup.rohitasawa_library.RohitCopyPaste;
 import com.teamup.rohitasawa_library.RohitCurrentDate;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
+import com.teamup.rohitasawa_library.RohitGoogleSignIn;
 import com.teamup.rohitasawa_library.RohitNotification;
 import com.teamup.rohitasawa_library.RohitOpenApps;
 import com.teamup.rohitasawa_library.RohitOpenUrl;
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                RohitOpenApps.openGpsSettings(MainActivity.this, 74);
+
 
             }
         });
@@ -154,6 +156,13 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitOpenApps.openCamera(MainActivity.this,55);
 
+//        RohitOpenApps.openGpsSettings(MainActivity.this, 74);
+
+//        RohitGoogleSignIn.getAccounts(MainActivity.this,500);
+
+
+        
+
     }
 
 
@@ -202,6 +211,18 @@ public class MainActivity extends AppCompatActivity {
 //        if (requestCode == 55) {
 //            Bitmap photo = (Bitmap) data.getExtras().get("data");
 //            img.setImageBitmap(photo);
+//        }
+//    }
+
+
+
+//    public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == 500 && resultCode == RESULT_OK) {
+//
+//            String accountName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+//            Toast.makeText(this, ""+accountName, Toast.LENGTH_SHORT).show();
+//
 //        }
 //    }
 
