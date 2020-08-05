@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ import com.teamup.rohitasawa_library.RohitRandomString;
 import com.teamup.rohitasawa_library.RohitSecurity;
 import com.teamup.rohitasawa_library.RohitSuccessDialog;
 import com.teamup.rohitasawa_library.RohitToast;
+import com.teamup.rohitasawa_library.RohitTorch;
 import com.teamup.rohitasawa_library.RohitVibrate;
 
 import static com.teamup.rohitasawa_library.RohitSecurity.authenticateApp;
@@ -50,11 +52,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                RohitSecurity.authenticateApp(MainActivity.this);
 
             }
         });
-
 
 
 //        RohitNotification.createNotif(getApplicationContext(),title,message);
@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
 //        new Handler().postDelayed(new Runnable() {
 //            @Override
 //            public void run() {
-//                RohitPleaseWait.stopDialog(MainActivity.this);
+////                RohitPleaseWait.stopDialog(MainActivity.this);
+//
 //            }
 //        }, 4000);
 
@@ -87,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
 //        RohitFeedbackGmail.takeFeedback(MainActivity.this, "Feedback from app : ", "teamup.developer@gmail.com");
 
 //        RohitWhatsappToNo.sendToNo(MainActivity.this,"7387191410","Hello Buddy!!");
-
 
 
 //        RohitRandomNumber.generateRandomNumber(5);
@@ -123,46 +123,57 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitBlueLoadingDialog.showDialog(MainActivity.this);
 
+//        RohitSecurity.authenticateApp(MainActivity.this);
+
+//        RohitTorch.start(MainActivity.this);
+
+//        RohitTorch.stop(MainActivity.this);
+
+
 
     }
-    private static final int LOCK_REQUEST_CODE = 221;
-    private static final int SECURITY_SETTING_REQUEST_CODE = 233;
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case LOCK_REQUEST_CODE:
-                if (resultCode == RESULT_OK) {
-                    //If screen lock authentication is success update text
-                    Toast.makeText(this, ""+getResources().getString(R.string.unlock_success), Toast.LENGTH_SHORT).show();
 
-                } else {
-                    //If screen lock authentication is failed update text
+//    For security code below onAcitvity Result
+//    private static final int LOCK_REQUEST_CODE = 221;
+//    private static final int SECURITY_SETTING_REQUEST_CODE = 233;
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        switch (requestCode) {
+//            case LOCK_REQUEST_CODE:
+//                if (resultCode == RESULT_OK) {
+//                    //If screen lock authentication is success update text
+//                    Toast.makeText(this, ""+getResources().getString(R.string.unlock_success), Toast.LENGTH_SHORT).show();
+//
+//                } else {
+//                    //If screen lock authentication is failed update text
+//
+//                    Toast.makeText(this, ""+getResources().getString(R.string.unlock_failed), Toast.LENGTH_SHORT).show();
+//                }
+//                break;
+//            case SECURITY_SETTING_REQUEST_CODE:
+//                //When user is enabled Security settings then we don't get any kind of RESULT_OK
+//                //So we need to check whether device has enabled screen lock or not
+//                if (isDeviceSecure(MainActivity.this)) {
+//
+//                    Toast.makeText(this, getResources().getString(R.string.device_is_secure), Toast.LENGTH_SHORT).show();
+//                    authenticateApp(MainActivity.this);
+//                } else {
+//                    //If screen lock is not enabled just update text
+//                    Toast.makeText(this, ""+getResources().getString(R.string.security_device_cancelled), Toast.LENGTH_SHORT).show();
+//                }
+//
+//                break;
+//        }
+//    }
 
-                    Toast.makeText(this, ""+getResources().getString(R.string.unlock_failed), Toast.LENGTH_SHORT).show();
-                }
-                break;
-            case SECURITY_SETTING_REQUEST_CODE:
-                //When user is enabled Security settings then we don't get any kind of RESULT_OK
-                //So we need to check whether device has enabled screen lock or not
-                if (isDeviceSecure(MainActivity.this)) {
 
-                    Toast.makeText(this, getResources().getString(R.string.device_is_secure), Toast.LENGTH_SHORT).show();
-                    authenticateApp(MainActivity.this);
-                } else {
-                    //If screen lock is not enabled just update text
-                    Toast.makeText(this, ""+getResources().getString(R.string.security_device_cancelled), Toast.LENGTH_SHORT).show();
-                }
-
-                break;
-        }
-    }
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        if (RohitErrorDialog.dialogColsed)
-        {
+        if (RohitErrorDialog.dialogColsed) {
             Toast.makeText(this, "dialog closed", Toast.LENGTH_SHORT).show();
         }
 
