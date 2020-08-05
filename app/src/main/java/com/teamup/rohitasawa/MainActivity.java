@@ -1,8 +1,10 @@
 package com.teamup.rohitasawa;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -21,9 +23,13 @@ import com.teamup.rohitasawa_library.RohitOpenUrl;
 import com.teamup.rohitasawa_library.RohitPlayBeep;
 import com.teamup.rohitasawa_library.RohitRandomNumber;
 import com.teamup.rohitasawa_library.RohitRandomString;
+import com.teamup.rohitasawa_library.RohitSecurity;
 import com.teamup.rohitasawa_library.RohitSuccessDialog;
 import com.teamup.rohitasawa_library.RohitToast;
 import com.teamup.rohitasawa_library.RohitVibrate;
+
+import static com.teamup.rohitasawa_library.RohitSecurity.authenticateApp;
+import static com.teamup.rohitasawa_library.RohitSecurity.isDeviceSecure;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                RohitSecurity.authenticateApp(MainActivity.this);
 
             }
         });
@@ -118,7 +125,39 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    private static final int LOCK_REQUEST_CODE = 221;
+    private static final int SECURITY_SETTING_REQUEST_CODE = 233;
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case LOCK_REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    //If screen lock authentication is success update text
+                    Toast.makeText(this, ""+getResources().getString(R.string.unlock_success), Toast.LENGTH_SHORT).show();
+
+                } else {
+                    //If screen lock authentication is failed update text
+
+                    Toast.makeText(this, ""+getResources().getString(R.string.unlock_failed), Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case SECURITY_SETTING_REQUEST_CODE:
+                //When user is enabled Security settings then we don't get any kind of RESULT_OK
+                //So we need to check whether device has enabled screen lock or not
+                if (isDeviceSecure(MainActivity.this)) {
+
+                    Toast.makeText(this, getResources().getString(R.string.device_is_secure), Toast.LENGTH_SHORT).show();
+                    authenticateApp(MainActivity.this);
+                } else {
+                    //If screen lock is not enabled just update text
+                    Toast.makeText(this, ""+getResources().getString(R.string.security_device_cancelled), Toast.LENGTH_SHORT).show();
+                }
+
+                break;
+        }
+    }
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
