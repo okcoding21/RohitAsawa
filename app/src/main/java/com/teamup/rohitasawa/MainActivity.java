@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.teamup.rohitasawa_library.Commons;
@@ -21,12 +23,14 @@ import com.teamup.rohitasawa_library.RohitCopyPaste;
 import com.teamup.rohitasawa_library.RohitCurrentDate;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
 import com.teamup.rohitasawa_library.RohitNotification;
+import com.teamup.rohitasawa_library.RohitOpenApps;
 import com.teamup.rohitasawa_library.RohitOpenUrl;
 import com.teamup.rohitasawa_library.RohitPermissions;
 import com.teamup.rohitasawa_library.RohitPlayBeep;
 import com.teamup.rohitasawa_library.RohitRandomNumber;
 import com.teamup.rohitasawa_library.RohitRandomString;
 import com.teamup.rohitasawa_library.RohitSecurity;
+import com.teamup.rohitasawa_library.RohitShareScreenShot;
 import com.teamup.rohitasawa_library.RohitSuccessDialog;
 import com.teamup.rohitasawa_library.RohitTextToSpeech;
 import com.teamup.rohitasawa_library.RohitToast;
@@ -40,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button please_wait_btn;
 
+    ImageView img;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         please_wait_btn = findViewById(R.id.please_wait_btn);
+        img = findViewById(R.id.img);
 
         String message = "Hello";
         String title = "Hello";
@@ -55,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
+                RohitOpenApps.openGpsSettings(MainActivity.this, 74);
 
             }
         });
@@ -141,6 +148,12 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitTextToSpeech.speak(MainActivity.this,"Hello Rohit");
 
+
+//        View content = findViewById(R.id.content);
+//        RohitShareScreenShot.shotIt(MainActivity.this, content,"Hello buddy!!");
+
+//        RohitOpenApps.openCamera(MainActivity.this,55);
+
     }
 
 
@@ -179,6 +192,18 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //    }
 
+
+//    onActivityResult for camera
+
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (requestCode == 55) {
+//            Bitmap photo = (Bitmap) data.getExtras().get("data");
+//            img.setImageBitmap(photo);
+//        }
+//    }
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
