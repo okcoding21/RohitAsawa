@@ -28,6 +28,7 @@ import com.teamup.rohitasawa_library.RohitNotification;
 import com.teamup.rohitasawa_library.RohitOpenApps;
 import com.teamup.rohitasawa_library.RohitOpenUrl;
 import com.teamup.rohitasawa_library.RohitPermissions;
+import com.teamup.rohitasawa_library.RohitPlayAudioFromUrl;
 import com.teamup.rohitasawa_library.RohitPlayBeep;
 import com.teamup.rohitasawa_library.RohitRandomNumber;
 import com.teamup.rohitasawa_library.RohitRandomString;
@@ -78,13 +79,14 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitPleaseWait.showDialog(this, "Loading..");
 //
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-////                RohitPleaseWait.stopDialog(MainActivity.this);
-//
-//            }
-//        }, 4000);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+//                RohitPleaseWait.stopDialog(MainActivity.this);
+
+
+            }
+        }, 4000);
 
 
 //        RohitInternetCheck.checkInternet(this);
@@ -161,7 +163,10 @@ public class MainActivity extends AppCompatActivity {
 //        RohitGoogleSignIn.getAccounts(MainActivity.this,500);
 
 
-        
+//        RohitPlayAudioFromUrl.play(MainActivity.this,"https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3");
+
+
+//        RohitPlayAudioFromUrl.stop(MainActivity.this);
 
     }
 
