@@ -24,8 +24,8 @@ public class RohitNotification {
             NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, "name", NotificationManager.IMPORTANCE_DEFAULT);
 
             Notification notification = new Notification.Builder(context, CHANNEL_ID)
-                    .setContentText(title)
-                    .setContentTitle(desc)
+                    .setContentText(desc)
+                    .setContentTitle(title)
                     .setDefaults(Notification.DEFAULT_ALL)
                     .setSound(uri)
 //                .addAction(android.R.drawable.sym_action_chat,"Title",pendingIntent)
