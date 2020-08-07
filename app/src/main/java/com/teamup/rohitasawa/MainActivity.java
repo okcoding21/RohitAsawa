@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.accounts.AccountManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
@@ -22,6 +25,7 @@ import com.teamup.rohitasawa_library.RohitApiB;
 import com.teamup.rohitasawa_library.RohitBlueLoadingDialog;
 import com.teamup.rohitasawa_library.RohitCopyPaste;
 import com.teamup.rohitasawa_library.RohitCurrentDate;
+import com.teamup.rohitasawa_library.RohitCustomNotification;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
 import com.teamup.rohitasawa_library.RohitGoogleSignIn;
 import com.teamup.rohitasawa_library.RohitNotification;
@@ -34,6 +38,7 @@ import com.teamup.rohitasawa_library.RohitRandomNumber;
 import com.teamup.rohitasawa_library.RohitRandomString;
 import com.teamup.rohitasawa_library.RohitSecurity;
 import com.teamup.rohitasawa_library.RohitShareScreenShot;
+import com.teamup.rohitasawa_library.RohitSimpleTextDialog;
 import com.teamup.rohitasawa_library.RohitSuccessDialog;
 import com.teamup.rohitasawa_library.RohitTextToSpeech;
 import com.teamup.rohitasawa_library.RohitToast;
@@ -79,14 +84,14 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitPleaseWait.showDialog(this, "Loading..");
 //
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-//                RohitPleaseWait.stopDialog(MainActivity.this);
-
-
-            }
-        }, 4000);
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+////                RohitPleaseWait.stopDialog(MainActivity.this);
+//
+//
+//            }
+//        }, 4000);
 
 
 //        RohitInternetCheck.checkInternet(this);
@@ -168,6 +173,13 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitPlayAudioFromUrl.stop(MainActivity.this);
 
+//        RohitSimpleTextDialog.hexColor = "#4CC417";
+//        RohitSimpleTextDialog.textColor = "#FFFFFF";
+//        RohitSimpleTextDialog.showTextDialog(MainActivity.this,"Hello brother");
+
+
+//        RohitCustomNotification.show(MainActivity.this, R.layout.activity_main);
+
     }
 
 
@@ -230,6 +242,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //        }
 //    }
+
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
