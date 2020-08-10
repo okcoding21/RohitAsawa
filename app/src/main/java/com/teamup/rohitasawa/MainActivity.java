@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -31,6 +32,7 @@ import com.teamup.rohitasawa_library.RohitCustomNotification;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
 import com.teamup.rohitasawa_library.RohitGoogleSignIn;
 import com.teamup.rohitasawa_library.RohitImageDialog;
+import com.teamup.rohitasawa_library.RohitInternet;
 import com.teamup.rohitasawa_library.RohitNotification;
 import com.teamup.rohitasawa_library.RohitOpenApps;
 import com.teamup.rohitasawa_library.RohitOpenUrl;
@@ -46,13 +48,17 @@ import com.teamup.rohitasawa_library.RohitSuccessDialog;
 import com.teamup.rohitasawa_library.RohitTextToSpeech;
 import com.teamup.rohitasawa_library.RohitToast;
 import com.teamup.rohitasawa_library.RohitTorch;
+import com.teamup.rohitasawa_library.RohitUpiPay;
 import com.teamup.rohitasawa_library.RohitVibrate;
 import com.teamup.rohitasawa_library.RohitWebviewDialog;
 
+import java.util.ArrayList;
+
 import static com.teamup.rohitasawa_library.RohitSecurity.authenticateApp;
 import static com.teamup.rohitasawa_library.RohitSecurity.isDeviceSecure;
+import static com.teamup.rohitasawa_library.RohitUpiPay.UPI_PAYMENT;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     Button please_wait_btn;
 
@@ -75,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                
+                RohitUpiPay.doPayment(MainActivity.this,"Rohit Asawa","gugalepranav72@oksbi","5.0","Paythis");
 
             }
         });
@@ -256,6 +262,68 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.e("main ", "response " + resultCode);
+        /*
+       E/main: response -1
+       E/UPI: onActivityResult: txnId=AXI4a3428ee58654a938811812c72c0df45&responseCode=00&Status=SUCCESS&txnRef=922118921612
+       E/UPIPAY: upiPaymentDataOperation: txnId=AXI4a3428ee58654a938811812c72c0df45&responseCode=00&Status=SUCCESS&txnRef=922118921612
+       E/UPI: payment successfull: 922118921612
+         */
+        switch (requestCode) {
+            case UPI_PAYMENT:
+                if ((RESULT_OK == resultCode) || (resultCode == 11)) {
+                    if (data != null) {
+                        String trxt = data.getStringExtra("response");
+                        Log.e("UPI", "onActivityResult: " + trxt);
+                        ArrayList<String> dataList = new ArrayList<>();
+                        dataList.add(trxt);
+                        if (RohitUpiPay.upiPaymentDataOperation(dataList, MainActivity.this))
+                        {
+                            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Log.e("UPI", "onActivityResult: " + "Return data is null");
+                        ArrayList<String> dataList = new ArrayList<>();
+                        dataList.add("nothing");
+                        if (RohitUpiPay.upiPaymentDataOperation(dataList, MainActivity.this))
+                        {
+                            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                } else {
+                    //when user simply back without payment
+                    Log.e("UPI", "onActivityResult: " + "Return data is null");
+                    ArrayList<String> dataList = new ArrayList<>();
+                    dataList.add("nothing");
+                    if (RohitUpiPay.upiPaymentDataOperation(dataList, MainActivity.this))
+                    {
+                        Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                break;
+        }
+    }
+
+
+
+
+
+
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -270,5 +338,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
+
+
 
 }
