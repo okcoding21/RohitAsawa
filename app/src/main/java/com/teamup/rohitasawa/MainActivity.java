@@ -14,6 +14,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,11 +24,13 @@ import com.teamup.rohitasawa_library.Commons;
 import com.teamup.rohitasawa_library.RohitApi;
 import com.teamup.rohitasawa_library.RohitApiB;
 import com.teamup.rohitasawa_library.RohitBlueLoadingDialog;
+import com.teamup.rohitasawa_library.RohitCalendarView;
 import com.teamup.rohitasawa_library.RohitCopyPaste;
 import com.teamup.rohitasawa_library.RohitCurrentDate;
 import com.teamup.rohitasawa_library.RohitCustomNotification;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
 import com.teamup.rohitasawa_library.RohitGoogleSignIn;
+import com.teamup.rohitasawa_library.RohitImageDialog;
 import com.teamup.rohitasawa_library.RohitNotification;
 import com.teamup.rohitasawa_library.RohitOpenApps;
 import com.teamup.rohitasawa_library.RohitOpenUrl;
@@ -44,6 +47,7 @@ import com.teamup.rohitasawa_library.RohitTextToSpeech;
 import com.teamup.rohitasawa_library.RohitToast;
 import com.teamup.rohitasawa_library.RohitTorch;
 import com.teamup.rohitasawa_library.RohitVibrate;
+import com.teamup.rohitasawa_library.RohitWebviewDialog;
 
 import static com.teamup.rohitasawa_library.RohitSecurity.authenticateApp;
 import static com.teamup.rohitasawa_library.RohitSecurity.isDeviceSecure;
@@ -71,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
+                
 
             }
         });
@@ -180,6 +185,12 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitCustomNotification.show(MainActivity.this, R.layout.activity_main);
 
+//        RohitWebviewDialog.show(MainActivity.this,"http://rohitasawa.c1.biz");
+
+//        RohitImageDialog.show(MainActivity.this,"https://image.spreadshirtmedia.com/image-server/v1/mp/products/T812A804MPA3140PT17X41Y98D10433227FS20899Cx512D0A/views/1,width=550,height=550,appearanceId=804,backgroundColor=F2F2F2,modelId=1237,crop=list,version=1581947588,modelImageVersion=1585828267/daggy-glasses-nerd-mens-premium-t-shirt.jpg");
+
+
+//        RohitCalendarView.show(MainActivity.this);
     }
 
 
@@ -244,11 +255,18 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
 
+
+
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (RohitErrorDialog.dialogColsed) {
             Toast.makeText(this, "dialog closed", Toast.LENGTH_SHORT).show();
+        }
+
+        if (!TextUtils.isEmpty(RohitCalendarView.year))
+        {
+            Toast.makeText(this, ""+RohitCalendarView.day+"/"+RohitCalendarView.month+"/"+RohitCalendarView.year, Toast.LENGTH_SHORT).show();
         }
 
     }
