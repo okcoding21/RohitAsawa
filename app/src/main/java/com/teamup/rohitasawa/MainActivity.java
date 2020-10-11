@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -12,10 +13,15 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.teamup.rohitasawa_library.RohitCalendarView;
+import com.teamup.rohitasawa_library.RohitCurrentDate;
+import com.teamup.rohitasawa_library.RohitDaysTheory;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
+import com.teamup.rohitasawa_library.RohitPlaySounds;
 import com.teamup.rohitasawa_library.RohitUpdate;
+import com.teamup.rohitasawa_library.RohitVolumeControl;
+import com.teamup.rohitasawa_library.RohitYesNoDialog;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity   {
 
     Button please_wait_btn;
 
@@ -38,12 +44,27 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                RohitUpdate.checkForUpdate(MainActivity.this,"1.1");
-
 
             }
         });
 
+//        RohitYesNoDialog.showDialog(MainActivity.this, "Are you sure to accept?");
+//        implements RohitYesNoDialog.dialogSayings
+
+//        RohitVolumeControl.IncreaseMusicVolume(MainActivity.this, 20);
+//        RohitPlaySounds.playFromAsset(MainActivity.this, "tick.mp3");
+//        RohitPlaySounds.stopMusic(
+//                MainActivity.this
+//        );
+
+//        RohitDaysTheory.differenceBetweenDays("13/10/2020", "18/10/2020","dd/MM/yyyy");
+
+//        RohitDaysTheory.compareDate("13/10/2020", "13/10/2020", "dd/MM/yyyy");
+
+//        RohitDaysTheory.addDaysToDate(RohitCurrentDate.getDateTimeInFormat("dd/MM/yyyy"),2,"dd/MM/yyyy");
+
+//        RohitVolumeControl.IncreaseMusicVolume(MainActivity.this,10);
+//        implements RohitVolumeControl.onVolumeIncreased
 
 //        RohitNotification.createNotif(getApplicationContext(),title,message);
 
@@ -56,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
 //        new Handler().postDelayed(new Runnable() {
 //            @Override
 //            public void run() {
-////                RohitPleaseWait.stopDialog(MainActivity.this);
+//
+//                RohitPlaySounds.stopMusic(MainActivity.this);
 //
 //
 //            }
@@ -285,6 +307,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -298,7 +321,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 
 
 

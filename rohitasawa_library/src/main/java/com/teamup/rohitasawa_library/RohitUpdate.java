@@ -56,12 +56,11 @@ public class RohitUpdate {
 
                 ((Activity) context).finish();
                 fetching.dismiss();
+
             }
         });
 
-
     }
-
 
     public static void stopDialog(Context context){
         fetching.dismiss();

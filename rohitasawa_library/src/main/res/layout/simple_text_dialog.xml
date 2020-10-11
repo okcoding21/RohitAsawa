@@ -15,22 +15,31 @@
             android:id="@+id/card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
+            android:minHeight="200dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             app:cardCornerRadius="15dp">
 
-            <TextView
-                android:id="@+id/text"
-                android:layout_width="wrap_content"
+            <androidx.core.widget.NestedScrollView
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:text="text template here"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:overScrollMode="never">
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="text template here"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </androidx.core.widget.NestedScrollView>
 
         </androidx.cardview.widget.CardView>
 
@@ -39,9 +48,9 @@
     <ImageView
         android:id="@+id/closeImg"
         android:layout_width="40dp"
-        android:src="@drawable/wrong"
-        android:layout_marginLeft="10dp"
+        android:layout_height="41dp"
         android:layout_alignParentRight="true"
-        android:layout_height="41dp"/>
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/wrong" />
 
 </RelativeLayout>
