@@ -3,25 +3,34 @@ package com.teamup.rohitasawa;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.teamup.rohitasawa_library.RohitCalculator;
 import com.teamup.rohitasawa_library.RohitCalendarView;
 import com.teamup.rohitasawa_library.RohitCurrentDate;
+import com.teamup.rohitasawa_library.RohitCustomDialog;
 import com.teamup.rohitasawa_library.RohitDaysTheory;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
+import com.teamup.rohitasawa_library.RohitKeyboardSettings;
+import com.teamup.rohitasawa_library.RohitNotification;
 import com.teamup.rohitasawa_library.RohitPlaySounds;
 import com.teamup.rohitasawa_library.RohitUpdate;
 import com.teamup.rohitasawa_library.RohitVolumeControl;
+import com.teamup.rohitasawa_library.RohitWallpaper;
 import com.teamup.rohitasawa_library.RohitYesNoDialog;
 
-public class MainActivity extends AppCompatActivity   {
+import java.io.IOException;
+
+public class MainActivity extends AppCompatActivity {
 
     Button please_wait_btn;
 
@@ -43,10 +52,24 @@ public class MainActivity extends AppCompatActivity   {
             @Override
             public void onClick(View view) {
 
-
+                startActivity(new Intent(MainActivity.this, RohitCalculator.class));
 
             }
         });
+
+//           RohitCustomDialog.showDialog(MainActivity.this, R.layout.dialog_yes_no, R.color.black, true);
+//                ImageButton green = RohitCustomDialog.view2.findViewById(R.id.yesBtn);
+
+
+//           <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS"/>
+//    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+//        try {
+//            RohitWallpaper.setWallpaper(MainActivity.this, R.drawable.wrong);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+//        RohitPlaySounds.playFromAsset(MainActivity.this,"kesta.mp3");
 
 //        RohitYesNoDialog.showDialog(MainActivity.this, "Are you sure to accept?");
 //        implements RohitYesNoDialog.dialogSayings
@@ -57,6 +80,8 @@ public class MainActivity extends AppCompatActivity   {
 //                MainActivity.this
 //        );
 
+//        RohitKeyboardSettings.showKeyBoard(MainActivity.this);
+
 //        RohitDaysTheory.differenceBetweenDays("13/10/2020", "18/10/2020","dd/MM/yyyy");
 
 //        RohitDaysTheory.compareDate("13/10/2020", "13/10/2020", "dd/MM/yyyy");
@@ -66,7 +91,7 @@ public class MainActivity extends AppCompatActivity   {
 //        RohitVolumeControl.IncreaseMusicVolume(MainActivity.this,10);
 //        implements RohitVolumeControl.onVolumeIncreased
 
-//        RohitNotification.createNotif(getApplicationContext(),title,message);
+//        RohitNotification.shotNotification(MainActivity.this, "Notit title", "This id desc",R.drawable.wrong);
 
 //        RohitToast.showToast(getApplicationContext(),"Notification Sent", "#FD6301");
 
@@ -90,16 +115,13 @@ public class MainActivity extends AppCompatActivity   {
 
 //        RohitCall.call(getApplicationContext(),"7387191410");
 
-
 //        RohitSMS.sms(getApplicationContext(),"7387191410", "Hello buddy!!");
-
 
 //                RohitShareApp.shareApp(MainActivity.this, "Hey i recommend you this app!!!\n\n");
 
 //        RohitFeedbackGmail.takeFeedback(MainActivity.this, "Feedback from app : ", "teamup.developer@gmail.com");
 
 //        RohitWhatsappToNo.sendToNo(MainActivity.this,"7387191410","Hello Buddy!!");
-
 
 //        RohitRandomNumber.generateRandomNumber(5);
 
@@ -231,7 +253,6 @@ public class MainActivity extends AppCompatActivity   {
 //    }
 
 
-
 //    public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
 //        super.onActivityResult(requestCode, resultCode, data);
 //        if (requestCode == 500 && resultCode == RESULT_OK) {
@@ -241,7 +262,6 @@ public class MainActivity extends AppCompatActivity   {
 //
 //        }
 //    }
-
 
 
 //    @Override
@@ -302,12 +322,6 @@ public class MainActivity extends AppCompatActivity   {
 //    }
 
 
-
-
-
-
-
-
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -315,14 +329,11 @@ public class MainActivity extends AppCompatActivity   {
             Toast.makeText(this, "dialog closed", Toast.LENGTH_SHORT).show();
         }
 
-        if (!TextUtils.isEmpty(RohitCalendarView.year))
-        {
-            Toast.makeText(this, ""+RohitCalendarView.day+"/"+RohitCalendarView.month+"/"+RohitCalendarView.year, Toast.LENGTH_SHORT).show();
+        if (!TextUtils.isEmpty(RohitCalendarView.year)) {
+            Toast.makeText(this, "" + RohitCalendarView.day + "/" + RohitCalendarView.month + "/" + RohitCalendarView.year, Toast.LENGTH_SHORT).show();
         }
 
     }
-
-
 
 
 }

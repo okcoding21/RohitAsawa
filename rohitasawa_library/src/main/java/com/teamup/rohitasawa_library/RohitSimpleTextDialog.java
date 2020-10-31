@@ -67,7 +67,14 @@ public class RohitSimpleTextDialog {
     }
 
     public static void stopDialog(Context context){
-        fetching.dismiss();
+        try {
+            fetching.dismiss();
+        }
+        catch (Exception v)
+        {
+
+        }
+
         dialogColsedRohitSimpleTextDialog = true;
     }
 

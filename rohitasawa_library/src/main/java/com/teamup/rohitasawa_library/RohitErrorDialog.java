@@ -46,14 +46,26 @@ public class RohitErrorDialog {
     }
 
     private static boolean doneBtnClicked() {
-        fetching.dismiss();
+        try {
+            fetching.dismiss();
+        }
+        catch (Exception v)
+        {
+
+        }
         dialogColsed = true;
         return true;
     }
 
 
     public static void stopDialog(Context context){
-        fetching.dismiss();
+        try {
+            fetching.dismiss();
+        }
+        catch (Exception v)
+        {
+
+        }
         dialogColsed = true;
     }
 

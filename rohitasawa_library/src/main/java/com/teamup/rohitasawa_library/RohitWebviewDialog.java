@@ -67,7 +67,13 @@ public class RohitWebviewDialog {
 
 
     public static void stopDialog(Context context){
-        fetching.dismiss();
+        try {
+            fetching.dismiss();
+        }
+        catch (Exception v)
+        {
+
+        }
         dialogClosed = true;
     }
 

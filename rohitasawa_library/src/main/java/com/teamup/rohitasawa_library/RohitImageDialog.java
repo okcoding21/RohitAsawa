@@ -44,7 +44,13 @@ public class RohitImageDialog {
     }
 
     public static void stopDialog(Context context){
-        fetching.dismiss();
+        try {
+            fetching.dismiss();
+        }
+        catch (Exception v)
+        {
+
+        }
         dialogColsed = true;
     }
 

@@ -63,7 +63,13 @@ public class RohitYesNoDialog {
     }
 
     public static void stopDialog(Context context){
-        fetching.dismiss();
+        try {
+            fetching.dismiss();
+        }
+        catch (Exception v)
+        {
+
+        }
     }
 
 }
