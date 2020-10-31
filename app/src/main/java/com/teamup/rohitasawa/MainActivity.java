@@ -1,26 +1,35 @@
 package com.teamup.rohitasawa;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.teamup.rohitasawa_library.RohitCalculator;
 import com.teamup.rohitasawa_library.RohitCalendarView;
+import com.teamup.rohitasawa_library.RohitContactPicker;
 import com.teamup.rohitasawa_library.RohitCurrentDate;
 import com.teamup.rohitasawa_library.RohitCustomDialog;
 import com.teamup.rohitasawa_library.RohitDaysTheory;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
+import com.teamup.rohitasawa_library.RohitFullScreenView;
 import com.teamup.rohitasawa_library.RohitKeyboardSettings;
+import com.teamup.rohitasawa_library.RohitLogin;
 import com.teamup.rohitasawa_library.RohitNotification;
 import com.teamup.rohitasawa_library.RohitPlaySounds;
 import com.teamup.rohitasawa_library.RohitUpdate;
@@ -43,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         please_wait_btn = findViewById(R.id.please_wait_btn);
+
         img = findViewById(R.id.img);
 
         String message = "Hello";
@@ -52,10 +62,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(MainActivity.this, RohitCalculator.class));
 
             }
         });
+
+
+//        finish();
+//        RohitLogin.activity = MainActivity.this;
+//        startActivity(new Intent(MainActivity.this, RohitLogin.class)
+//                .putExtra("password", "555")
+//                .putExtra("title", "Rohit Asawa"));
+
+
+//        RohitContactPicker.pickContact(MainActivity.this, 512);
+
+//        RohitFullScreenView.FullScreencall(RohitCalculator.this);
+
+//        startActivity(new Intent(MainActivity.this, RohitCalculator.class));
 
 //           RohitCustomDialog.showDialog(MainActivity.this, R.layout.dialog_yes_no, R.color.black, true);
 //                ImageButton green = RohitCustomDialog.view2.findViewById(R.id.yesBtn);
@@ -322,6 +345,28 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
 
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == 512 && resultCode == RESULT_OK) {
+//            // Get the URI and query the content provider for the phone number
+//            Uri contactUri = data.getData();
+//            String[] projection = new String[]{ContactsContract.CommonDataKinds.Phone.NUMBER};
+//            Cursor cursor = getContentResolver().query(contactUri, projection,
+//                    null, null, null);
+//
+//            // If the cursor returned is valid, get the phone number
+//            if (cursor != null && cursor.moveToFirst()) {
+//                int numberIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+//                String number = cursor.getString(numberIndex);
+//                Toast.makeText(this, ""+number, Toast.LENGTH_SHORT).show();
+//                // Do something with the phone number
+//            }
+//
+//            cursor.close();
+//        }
+//    }
+
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -336,4 +381,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
 }

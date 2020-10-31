@@ -51,6 +51,8 @@ public class RohitCalculator extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_rohit_calculator);
 
+        RohitFullScreenView.FullScreencall(RohitCalculator.this);
+
         viewSetup();
 
         b1.setOnClickListener(new View.OnClickListener() {
