@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -14,12 +15,15 @@ import android.os.Handler;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.teamup.rohitasawa_library.RohitAlertWithList;
+import com.teamup.rohitasawa_library.RohitAudioPicker;
 import com.teamup.rohitasawa_library.RohitCalculator;
 import com.teamup.rohitasawa_library.RohitCalendarView;
 import com.teamup.rohitasawa_library.RohitContactPicker;
@@ -28,16 +32,21 @@ import com.teamup.rohitasawa_library.RohitCustomDialog;
 import com.teamup.rohitasawa_library.RohitDaysTheory;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
 import com.teamup.rohitasawa_library.RohitFullScreenView;
+import com.teamup.rohitasawa_library.RohitImageSlider;
 import com.teamup.rohitasawa_library.RohitKeyboardSettings;
 import com.teamup.rohitasawa_library.RohitLogin;
 import com.teamup.rohitasawa_library.RohitNotification;
+import com.teamup.rohitasawa_library.RohitPlayAudioFromUrl;
 import com.teamup.rohitasawa_library.RohitPlaySounds;
 import com.teamup.rohitasawa_library.RohitUpdate;
 import com.teamup.rohitasawa_library.RohitVolumeControl;
 import com.teamup.rohitasawa_library.RohitWallpaper;
 import com.teamup.rohitasawa_library.RohitYesNoDialog;
+import com.teamup.rohitasawa_library.TestLayout;
+import com.teamup.rohitasawa_library.ViewPagerFolder.pagerReq;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         String message = "Hello";
         String title = "Hello";
 
+
         please_wait_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +75,35 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+//             ArrayList<pagerReq> list = new ArrayList<>();
+//
+//        pagerReq pr = new pagerReq("https://pbs.twimg.com/profile_images/445382241523216384/LMttXsNf.jpeg", "null");
+//        list.add(pr);
+//
+//        pagerReq pr1 = new pagerReq("https://pbs.twimg.com/profile_images/445382241523216384/LMttXsNf.jpeg", "null");
+//        list.add(pr1);
+//
+//        pagerReq pr2 = new pagerReq("https://pbs.twimg.com/profile_images/445382241523216384/LMttXsNf.jpeg", "null");
+//        list.add(pr2);
+//
+//        RohitImageSlider rohitImageSlider = findViewById(R.id.tl1);
+//        rohitImageSlider.setNumber("3000");
+//        rohitImageSlider.setArrayList(list);
+
+
+//        RohitAudioPicker.pickAudio(MainActivity.this, 552);
+
+
+//           final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_selectable_list_item);
+//        arrayAdapter.add("Hardik");
+//        arrayAdapter.add("Archit");
+//        arrayAdapter.add("Jignesh");
+//        arrayAdapter.add("Umang");
+//        arrayAdapter.add("Gatti");
+
+//        RohitAlertWithList.showListDialog(MainActivity.this, arrayAdapter, R.drawable.check);
 
 
 //        finish();
@@ -386,4 +425,20 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
     }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        try {
+//            Uri uri = data.getData();
+//            RohitPlayAudioFromUrl.play(MainActivity.this, String.valueOf(uri));
+//        } catch (Exception v) {
+//            Toast.makeText(this, "Nothing selected", Toast.LENGTH_SHORT).show();
+//        }
+//    }
+
+//    @Override
+//    public void selected(String selected) {
+//        Toast.makeText(this, "Selected : " + selected, Toast.LENGTH_SHORT).show();
+//    }
 }
