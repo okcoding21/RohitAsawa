@@ -23,6 +23,8 @@ public class RohitShareScreenShot {
 
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("image/png");
+        intent.putExtra(Intent.EXTRA_TEXT, ""+title);
+        intent.putExtra(Intent.EXTRA_SUBJECT, ""+title);
         intent.putExtra(Intent.EXTRA_STREAM, bitmapUri);
         context.startActivity(Intent.createChooser(intent, "Share"));
     }
