@@ -1,52 +1,22 @@
 package com.teamup.rohitasawa;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.teamup.rohitasawa_library.RohitAlertWithList;
-import com.teamup.rohitasawa_library.RohitAudioPicker;
-import com.teamup.rohitasawa_library.RohitCalculator;
+import com.teamup.rohitasawa_library.RohitBackPressed;
 import com.teamup.rohitasawa_library.RohitCalendarView;
-import com.teamup.rohitasawa_library.RohitContactPicker;
-import com.teamup.rohitasawa_library.RohitCurrentDate;
-import com.teamup.rohitasawa_library.RohitCustomDialog;
+import com.teamup.rohitasawa_library.RohitChangeNavigationColor;
 import com.teamup.rohitasawa_library.RohitDaysTheory;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
-import com.teamup.rohitasawa_library.RohitFullScreenView;
-import com.teamup.rohitasawa_library.RohitImageSlider;
-import com.teamup.rohitasawa_library.RohitKeyboardSettings;
-import com.teamup.rohitasawa_library.RohitLogin;
-import com.teamup.rohitasawa_library.RohitNotification;
-import com.teamup.rohitasawa_library.RohitPlayAudioFromUrl;
-import com.teamup.rohitasawa_library.RohitPlaySounds;
-import com.teamup.rohitasawa_library.RohitUpdate;
-import com.teamup.rohitasawa_library.RohitVolumeControl;
-import com.teamup.rohitasawa_library.RohitWallpaper;
-import com.teamup.rohitasawa_library.RohitYesNoDialog;
-import com.teamup.rohitasawa_library.TestLayout;
-import com.teamup.rohitasawa_library.ViewPagerFolder.pagerReq;
-
-import java.io.IOException;
-import java.util.ArrayList;
+import com.teamup.rohitasawa_library.RohitMusicPicker;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         please_wait_btn = findViewById(R.id.please_wait_btn);
@@ -73,9 +44,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
+
+
             }
         });
 
+//        RohitDaysTheory.ConvertTo("dd/MM/yyy","22/09/2020", "yyyy/MM/dd")
+
+//        RohitMusicPicker.open(MainActivity.this, 545);
+
+//        RohitChangeNavigationColor.change(MainActivity.this);
+
+//        RohitHideTop.hide(MainActivity.this);
+
+//        RohitSimpleTextShare.share(MainActivity.this, "Hello this is shared..");
 
 //             ArrayList<pagerReq> list = new ArrayList<>();
 //
@@ -441,4 +423,11 @@ public class MainActivity extends AppCompatActivity {
 //    public void selected(String selected) {
 //        Toast.makeText(this, "Selected : " + selected, Toast.LENGTH_SHORT).show();
 //    }
+
+
+    @Override
+    public void onBackPressed() {
+        RohitBackPressed.enable(this);
+
+    }
 }

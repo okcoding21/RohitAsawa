@@ -107,5 +107,22 @@ public class RohitDaysTheory {
         }
         return 0;
     }
+
+    public static String ConvertTo(String oldFormat, String date, String newFormat) throws ParseException {
+
+        try {
+            String strCurrentDate = "" + date;
+            SimpleDateFormat format = new SimpleDateFormat(oldFormat);
+            Date newDate = format.parse(strCurrentDate);
+
+            format = new SimpleDateFormat(newFormat);
+            date = format.format(newDate);
+        }
+        catch (Exception v)
+        {
+
+        }
+        return date;
+    }
 }
 
