@@ -14,13 +14,21 @@ import android.widget.Toast;
 import com.teamup.rohitasawa_library.RohitBackPressed;
 import com.teamup.rohitasawa_library.RohitCalendarView;
 import com.teamup.rohitasawa_library.RohitChangeNavigationColor;
+import com.teamup.rohitasawa_library.RohitCopyPaste;
 import com.teamup.rohitasawa_library.RohitDaysTheory;
+import com.teamup.rohitasawa_library.RohitDialog;
+import com.teamup.rohitasawa_library.RohitEncryptDecrypt;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
+import com.teamup.rohitasawa_library.RohitMobileInfo;
 import com.teamup.rohitasawa_library.RohitMusicPicker;
+import com.teamup.rohitasawa_library.RohitPermissions;
+import com.teamup.rohitasawa_library.RohitShield;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button please_wait_btn;
+    Button button;
 
     ImageView img;
 
@@ -31,23 +39,26 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        please_wait_btn = findViewById(R.id.please_wait_btn);
+        button = findViewById(R.id.button);
 
-        img = findViewById(R.id.img);
+        RohitPermissions.READ_WRITE_STORAAGE(this, 512);
 
-        String message = "Hello";
-        String title = "Hello";
-
-
-        please_wait_btn.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-
-
             }
         });
+
+
+//RohitMobileInfo.getThisAppName(MainActivity.this)
+
+
+//        RohitEncryptDecrypt.Decrypt("hello");
+
+//        RohitEncryptDecrypt.Encrypt("hello");
+
 
 //        RohitDaysTheory.ConvertTo("dd/MM/yyy","22/09/2020", "yyyy/MM/dd")
 
