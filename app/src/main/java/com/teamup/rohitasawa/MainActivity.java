@@ -19,6 +19,7 @@ import com.teamup.rohitasawa_library.RohitDaysTheory;
 import com.teamup.rohitasawa_library.RohitDialog;
 import com.teamup.rohitasawa_library.RohitEncryptDecrypt;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
+import com.teamup.rohitasawa_library.RohitIntermediateDialog;
 import com.teamup.rohitasawa_library.RohitMobileInfo;
 import com.teamup.rohitasawa_library.RohitMusicPicker;
 import com.teamup.rohitasawa_library.RohitPermissions;
@@ -47,10 +48,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                RohitIntermediateDialog.stopDialog(MainActivity.this);
 
             }
         });
 
+        RohitIntermediateDialog.showDialog(MainActivity.this, "Loading..");
 
 //RohitMobileInfo.getThisAppName(MainActivity.this)
 
