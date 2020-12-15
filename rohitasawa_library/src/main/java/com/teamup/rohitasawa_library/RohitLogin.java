@@ -47,11 +47,13 @@ public class RohitLogin extends AppCompatActivity {
                 String pass = edtPass.getText().toString();
                 if (!TextUtils.isEmpty(pass)) {
                     if (pass.equals(extras.getString("password"))) {
+                        loggedIn = true;
                         finish();
                         startActivity(new Intent(RohitLogin.this, activity.getClass()));
                     }
                     else
                     {
+                        loggedIn = false;
                         edtPass.setText("");
                         Toast.makeText(RohitLogin.this, "Wrong Password", Toast.LENGTH_SHORT).show();
                     }
@@ -66,6 +68,6 @@ public class RohitLogin extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
+        loggedIn = false;
     }
 }
