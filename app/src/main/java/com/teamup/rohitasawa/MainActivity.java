@@ -18,13 +18,17 @@ import com.teamup.rohitasawa_library.RohitCopyPaste;
 import com.teamup.rohitasawa_library.RohitDaysTheory;
 import com.teamup.rohitasawa_library.RohitDialog;
 import com.teamup.rohitasawa_library.RohitDirectResponse;
+import com.teamup.rohitasawa_library.RohitDownloader;
 import com.teamup.rohitasawa_library.RohitEncryptDecrypt;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
 import com.teamup.rohitasawa_library.RohitIntermediateDialog;
+import com.teamup.rohitasawa_library.RohitJsonArray;
 import com.teamup.rohitasawa_library.RohitMobileInfo;
 import com.teamup.rohitasawa_library.RohitMusicPicker;
 import com.teamup.rohitasawa_library.RohitPermissions;
 import com.teamup.rohitasawa_library.RohitShield;
+
+import org.json.JSONArray;
 
 import java.io.IOException;
 
@@ -50,9 +54,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-
             }
         });
+
+//        RohitDownloader.download(MainActivity.this,"https://www.status-for-whatsapp.com/wp-content/uploads/2020/01/HUM_ROYENGE_ITNA__Full_Screen_Whatsapp_Status_Without_Watermark360p.mp4?_=3","temp.mp4",RohitDownloader.VISIBLE);
+
+
+//        RohitJsonArray.setContext(MainActivity.this);
+//        new RohitJsonArray.getResponse().execute("http://adminapp.site/snackindia/API/ItsMe/fetch_notifications.php?query=select%20*%20from%20Notifications");
+
 
 //        RohitDirectResponse.getResponse("http://adminapp.site/snackindia/API/ItsMe/fetch_count.php?query=SELECT%20*%20FROM%20`likes`%20where%20userid%20=2004931507")
 
@@ -447,4 +457,14 @@ public class MainActivity extends AppCompatActivity {
         RohitBackPressed.enable(this);
 
     }
+
+//    @Override
+////    public void DownloadComplete(String filePath) {
+////        Toast.makeText(this, "Saved at "+filePath, Toast.LENGTH_SHORT).show();
+////    }
+
+//    @Override
+//    public void gotResponse(JSONArray response) {
+//        Toast.makeText(this, "" + response, Toast.LENGTH_SHORT).show();
+//    }
 }
