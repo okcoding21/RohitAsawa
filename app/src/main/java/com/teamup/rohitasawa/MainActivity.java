@@ -17,6 +17,7 @@ import com.teamup.rohitasawa_library.RohitChangeNavigationColor;
 import com.teamup.rohitasawa_library.RohitCopyPaste;
 import com.teamup.rohitasawa_library.RohitDaysTheory;
 import com.teamup.rohitasawa_library.RohitDialog;
+import com.teamup.rohitasawa_library.RohitDirectResponse;
 import com.teamup.rohitasawa_library.RohitEncryptDecrypt;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
 import com.teamup.rohitasawa_library.RohitIntermediateDialog;
@@ -48,12 +49,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                RohitIntermediateDialog.stopDialog(MainActivity.this);
+
 
             }
         });
 
-        RohitIntermediateDialog.showDialog(MainActivity.this, "Loading..");
+//        RohitDirectResponse.getResponse("http://adminapp.site/snackindia/API/ItsMe/fetch_count.php?query=SELECT%20*%20FROM%20`likes`%20where%20userid%20=2004931507")
+
+//        RohitIntermediateDialog.showDialog(MainActivity.this, "Loading..");
 
 //RohitMobileInfo.getThisAppName(MainActivity.this)
 
