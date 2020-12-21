@@ -13,8 +13,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class RohitShield {
+    public static ArrayList<String> list = new ArrayList<>();
     public static String sFileName = "sheild.txt";
 
     public static void Write(Context context, String key, String body) {
@@ -36,7 +38,7 @@ public class RohitShield {
         }
     }
 
-    public static String Read(Context context, String key) throws IOException {
+    public static String Read(Context context, String key) {
         RohitPermissions.READ_WRITE_STORAAGE(context, 512);
         try {
 
@@ -70,15 +72,49 @@ public class RohitShield {
                 } catch (Exception v) {
 
                 }
-
-
             }
             fileInputStream.close();
-            return stringBuilder.toString();
+//            return stringBuilder.toString();
         } catch (Exception v) {
 
         }
         return null;
+    }
+
+    public static ArrayList getAllLog(Context context) {
+        RohitPermissions.READ_WRITE_STORAAGE(context, 512);
+        try {
+
+            list.clear();
+            String string = "";
+            StringBuilder stringBuilder = new StringBuilder();
+
+            File root = new File(Environment.getExternalStorageDirectory(), "." + RohitMobileInfo.getThisAppName(context));
+            File file = new File(root, sFileName);
+            FileInputStream fileInputStream = new FileInputStream(file);
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fileInputStream));
+            while (true) {
+                try {
+                    if ((string = reader.readLine()) == null) break;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                stringBuilder.append(string).append("\n");
+
+                try {
+                    String currentString = string.replace("~", "").replace("#", "");
+                    list.add(currentString);
+                } catch (Exception v) {
+
+                }
+            }
+            fileInputStream.close();
+//            return stringBuilder.toString();
+        } catch (Exception v) {
+
+        }
+        return list;
     }
 
 }

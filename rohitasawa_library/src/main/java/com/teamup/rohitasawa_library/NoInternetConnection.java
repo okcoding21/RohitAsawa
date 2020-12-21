@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -28,6 +30,7 @@ public class NoInternetConnection extends AppCompatActivity {
         refreshTxt = findViewById(R.id.refreshTxt);
 
         refreshTxt.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View view) {
 
@@ -41,7 +44,7 @@ public class NoInternetConnection extends AppCompatActivity {
                 } else {
                     connected = false;
 
-                    RohitToast.showToast(getApplicationContext(),"No Internet connection!!", "#ff0099cc");
+                    RohitToast.showToast(getApplicationContext(),"No Internet connection!!");
                 }
 
             }

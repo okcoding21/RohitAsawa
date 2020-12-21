@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +27,11 @@ import com.teamup.rohitasawa_library.RohitJsonArray;
 import com.teamup.rohitasawa_library.RohitMobileInfo;
 import com.teamup.rohitasawa_library.RohitMusicPicker;
 import com.teamup.rohitasawa_library.RohitPermissions;
+import com.teamup.rohitasawa_library.RohitProgressDialog;
+import com.teamup.rohitasawa_library.RohitRandomNumber;
 import com.teamup.rohitasawa_library.RohitShield;
+import com.teamup.rohitasawa_library.RohitToast;
+import com.teamup.rohitasawa_library.ViewPagerFolder.RohitPaths;
 
 import org.json.JSONArray;
 
@@ -49,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         RohitPermissions.READ_WRITE_STORAAGE(this, 512);
 
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+//        RohitProgressDialog.showDialog(MainActivity.this, "Downloading", R.color.colorAccent);
+
+//        Toast.makeText(MainActivity.this, ""+ RohitPaths.getPath("Rohit", RohitPaths.DOWNLOADS), Toast.LENGTH_SHORT).show();
+
 
 //        RohitDownloader.download(MainActivity.this,"https://www.status-for-whatsapp.com/wp-content/uploads/2020/01/HUM_ROYENGE_ITNA__Full_Screen_Whatsapp_Status_Without_Watermark360p.mp4?_=3","temp.mp4",RohitDownloader.VISIBLE);
 
@@ -273,6 +284,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        RohitUpiPay.doPayment(MainActivity.this,"Rohit Asawa","gugalepranav72@oksbi","5.0","Paythis");
     }
+
 
 
 //    For security code below onAcitvity Result
