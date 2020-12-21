@@ -29,7 +29,7 @@ public class RohitShield {
             }
             File gpxfile = new File(root, sFileName);
             FileWriter writer = new FileWriter(gpxfile, true);
-            writer.append("~" + key + ":" + body + "#\n");
+            writer.append("~" + key + ":" + body + " @"+RohitCurrentDate.getDateTimeInFormat("dd/MM/yyyy, hh-mm a")+"#\n");
             writer.flush();
             writer.close();
 //            Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show();
