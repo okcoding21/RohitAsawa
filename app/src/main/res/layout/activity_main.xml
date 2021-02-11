@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent "
     android:layout_gravity="center"
-    android:gravity="center"
     android:background="@color/whiite"
+    android:gravity="center"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -16,9 +16,9 @@
         android:orientation="vertical">
 
         <EditText
-            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/button"
@@ -37,12 +37,12 @@
 
 
         <com.teamup.rohitasawa_library.RohitImageSlider
-            android:visibility="gone"
             android:id="@+id/tl1"
-            app:background_color="@color/black"
-            app:period_in_ms="100"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:background_color="@color/black"
+            app:period_in_ms="100" />
 
     </LinearLayout>
 </RelativeLayout>

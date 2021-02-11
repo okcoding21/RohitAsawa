@@ -1,8 +1,10 @@
 package com.teamup.rohitasawa;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,6 +24,7 @@ import com.teamup.rohitasawa_library.RohitDirectResponse;
 import com.teamup.rohitasawa_library.RohitDownloader;
 import com.teamup.rohitasawa_library.RohitEncryptDecrypt;
 import com.teamup.rohitasawa_library.RohitErrorDialog;
+import com.teamup.rohitasawa_library.RohitImageSelector;
 import com.teamup.rohitasawa_library.RohitIntermediateDialog;
 import com.teamup.rohitasawa_library.RohitJsonArray;
 import com.teamup.rohitasawa_library.RohitMobileInfo;
@@ -62,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+//        RohitImageSelector.openGalleryAndSelect(MainActivity.this);
 
 //        RohitProgressDialog.showDialog(MainActivity.this, "Downloading", R.color.colorAccent);
 
@@ -286,7 +292,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
 //    For security code below onAcitvity Result
 //    private static final int LOCK_REQUEST_CODE = 221;
 //    private static final int SECURITY_SETTING_REQUEST_CODE = 233;
@@ -478,5 +483,13 @@ public class MainActivity extends AppCompatActivity {
 //    @Override
 //    public void gotResponse(JSONArray response) {
 //        Toast.makeText(this, "" + response, Toast.LENGTH_SHORT).show();
+//    }
+
+
+//Image selector
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        Toast.makeText(this, "" + RohitImageSelector.getPath(MainActivity.this, data), Toast.LENGTH_SHORT).show();
 //    }
 }
