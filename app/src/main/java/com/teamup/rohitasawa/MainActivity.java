@@ -41,9 +41,9 @@ import org.json.JSONArray;
 
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RohitJsonArray.JsonResponded {
 
-    Button button;
+    Button button, button2;
 
     ImageView img;
 
@@ -54,19 +54,28 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        button2 = findViewById(R.id.button2);
         button = findViewById(R.id.button);
 
         RohitPermissions.READ_WRITE_STORAAGE(this, 512);
 
-
+        RohitJsonArray.setContext(MainActivity.this);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
+                RohitJsonArray.setDataFor("first");
+                new RohitJsonArray.getResponse().execute("http://13.233.81.131/API/ItsMe/fetch_stickers.php");
             }
         });
 
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RohitJsonArray.setDataFor("second");
+                new RohitJsonArray.getResponse().execute("http://13.233.81.131/API/ItsMe/fetch_stickers.php");
+            }
+        });
 
 //        RohitVideoPicker.Pick(MainActivity.this);
 //        RohitImageSelector.openGalleryAndSelect(MainActivity.this);
@@ -77,10 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 //        RohitDownloader.download(MainActivity.this,"https://www.status-for-whatsapp.com/wp-content/uploads/2020/01/HUM_ROYENGE_ITNA__Full_Screen_Whatsapp_Status_Without_Watermark360p.mp4?_=3","temp.mp4",RohitDownloader.VISIBLE);
-
-
-//        RohitJsonArray.setContext(MainActivity.this);
-//        new RohitJsonArray.getResponse().execute("http://adminapp.site/snackindia/API/ItsMe/fetch_notifications.php?query=select%20*%20from%20Notifications");
 
 
 //        RohitDirectResponse.getResponse("http://adminapp.site/snackindia/API/ItsMe/fetch_count.php?query=SELECT%20*%20FROM%20`likes`%20where%20userid%20=2004931507")
@@ -475,6 +480,11 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         RohitBackPressed.enable(this);
 
+    }
+
+    @Override
+    public void gotResponse(JSONArray response, String dataKey) {
+        Toast.makeText(this, dataKey + " : \n\n" + response, Toast.LENGTH_SHORT).show();
     }
 
 //    @Override

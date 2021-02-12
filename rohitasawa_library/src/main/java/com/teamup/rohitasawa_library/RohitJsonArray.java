@@ -21,9 +21,14 @@ public class RohitJsonArray {
 
     public static JSONArray jsonArray;
     public static Context context;
+    public static String dataKey = "public";
 
-    public static void setContext(Context contextOfActivity){
+    public static void setContext(Context contextOfActivity) {
         context = contextOfActivity;
+    }
+
+    public static void setDataFor(String dataFor) {
+        dataKey = dataFor;
     }
 
     public static class getResponse extends AsyncTask<String, String, String> {
@@ -31,7 +36,6 @@ public class RohitJsonArray {
 
         protected void onPreExecute() {
             super.onPreExecute();
-
             jsonArray = new JSONArray();
 
         }
@@ -88,8 +92,8 @@ public class RohitJsonArray {
             try {
 
                 jsonArray = new JSONArray(result);
-                JsonResponded green = (JsonResponded)context;
-                green.gotResponse(jsonArray);
+                JsonResponded green = (JsonResponded) context;
+                green.gotResponse(jsonArray, dataKey);
 
 
             } catch (Exception c) {
@@ -100,8 +104,8 @@ public class RohitJsonArray {
         }
     }
 
-    public interface JsonResponded{
-        public void gotResponse(JSONArray response);
+    public interface JsonResponded {
+        public void gotResponse(JSONArray response, String dataKey);
 
     }
 
