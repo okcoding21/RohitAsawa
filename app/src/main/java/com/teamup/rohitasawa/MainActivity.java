@@ -34,6 +34,7 @@ import com.teamup.rohitasawa_library.RohitProgressDialog;
 import com.teamup.rohitasawa_library.RohitRandomNumber;
 import com.teamup.rohitasawa_library.RohitShield;
 import com.teamup.rohitasawa_library.RohitToast;
+import com.teamup.rohitasawa_library.RohitVideoPicker;
 import com.teamup.rohitasawa_library.ViewPagerFolder.RohitPaths;
 
 import org.json.JSONArray;
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+//        RohitVideoPicker.Pick(MainActivity.this);
 //        RohitImageSelector.openGalleryAndSelect(MainActivity.this);
 
 //        RohitProgressDialog.showDialog(MainActivity.this, "Downloading", R.color.colorAccent);
@@ -432,18 +434,18 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //    }
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (RohitErrorDialog.dialogColsed) {
-            Toast.makeText(this, "dialog closed", Toast.LENGTH_SHORT).show();
-        }
-
-        if (!TextUtils.isEmpty(RohitCalendarView.year)) {
-            Toast.makeText(this, "" + RohitCalendarView.day + "/" + RohitCalendarView.month + "/" + RohitCalendarView.year, Toast.LENGTH_SHORT).show();
-        }
-
-    }
+//    @Override
+//    public void onWindowFocusChanged(boolean hasFocus) {
+//        super.onWindowFocusChanged(hasFocus);
+//        if (RohitErrorDialog.dialogColsed) {
+//            Toast.makeText(this, "dialog closed", Toast.LENGTH_SHORT).show();
+//        }
+//
+//        if (!TextUtils.isEmpty(RohitCalendarView.year)) {
+//            Toast.makeText(this, "" + RohitCalendarView.day + "/" + RohitCalendarView.month + "/" + RohitCalendarView.year, Toast.LENGTH_SHORT).show();
+//        }
+//
+//    }
 
 
     @Override
@@ -491,5 +493,12 @@ public class MainActivity extends AppCompatActivity {
 //    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 //        super.onActivityResult(requestCode, resultCode, data);
 //        Toast.makeText(this, "" + RohitImageSelector.getPath(MainActivity.this, data), Toast.LENGTH_SHORT).show();
+//    }
+
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        Toast.makeText(this, "" + RohitVideoPicker.getPath(MainActivity.this, data), Toast.LENGTH_SHORT).show();
 //    }
 }
