@@ -1,47 +1,20 @@
 package com.teamup.rohitasawa;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.teamup.rohitasawa_library.RohitAlertDialogInput;
 import com.teamup.rohitasawa_library.RohitBackPressed;
-import com.teamup.rohitasawa_library.RohitCalendarView;
-import com.teamup.rohitasawa_library.RohitChangeNavigationColor;
-import com.teamup.rohitasawa_library.RohitCopyPaste;
-import com.teamup.rohitasawa_library.RohitDaysTheory;
-import com.teamup.rohitasawa_library.RohitDialog;
-import com.teamup.rohitasawa_library.RohitDirectResponse;
-import com.teamup.rohitasawa_library.RohitDownloader;
-import com.teamup.rohitasawa_library.RohitEncryptDecrypt;
-import com.teamup.rohitasawa_library.RohitErrorDialog;
-import com.teamup.rohitasawa_library.RohitImageSelector;
-import com.teamup.rohitasawa_library.RohitIntermediateDialog;
-import com.teamup.rohitasawa_library.RohitJsonArray;
-import com.teamup.rohitasawa_library.RohitMobileInfo;
-import com.teamup.rohitasawa_library.RohitMusicPicker;
 import com.teamup.rohitasawa_library.RohitPermissions;
-import com.teamup.rohitasawa_library.RohitProgressDialog;
-import com.teamup.rohitasawa_library.RohitRandomNumber;
-import com.teamup.rohitasawa_library.RohitShield;
-import com.teamup.rohitasawa_library.RohitToast;
-import com.teamup.rohitasawa_library.RohitVideoPicker;
-import com.teamup.rohitasawa_library.ViewPagerFolder.RohitPaths;
 
-import org.json.JSONArray;
-
-import java.io.IOException;
-
-public class MainActivity extends AppCompatActivity implements RohitJsonArray.JsonResponded {
+public class MainActivity extends AppCompatActivity implements RohitAlertDialogInput.InputDialogMethods {
 
     Button button, button2;
 
@@ -59,23 +32,29 @@ public class MainActivity extends AppCompatActivity implements RohitJsonArray.Js
 
         RohitPermissions.READ_WRITE_STORAAGE(this, 512);
 
-        RohitJsonArray.setContext(MainActivity.this);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RohitJsonArray.setDataFor("first");
-                new RohitJsonArray.getResponse().execute("http://13.233.81.131/API/ItsMe/fetch_stickers.php");
+                RohitAlertDialogInput.setDataley("name");
+                RohitAlertDialogInput.showInputDialog(MainActivity.this, "Enter Name : ", true, false);
             }
         });
-
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RohitJsonArray.setDataFor("second");
-                new RohitJsonArray.getResponse().execute("http://13.233.81.131/API/ItsMe/fetch_stickers.php");
+                RohitAlertDialogInput.setDataley("surname");
+                RohitAlertDialogInput.showInputDialog(MainActivity.this, "Enter Surname : ", true, true);
             }
         });
+
+
+//           List<String> data = new ArrayList<>();
+//                data.add("Rohit");
+//                data.add("Darshan");
+//                data.add("Kaluram");
+//                RohitAlertWithList.showListDialog(MainActivity.this, data, R.drawable.lock, "Select one buddy");
+
 
 //        RohitVideoPicker.Pick(MainActivity.this);
 //        RohitImageSelector.openGalleryAndSelect(MainActivity.this);
@@ -483,9 +462,29 @@ public class MainActivity extends AppCompatActivity implements RohitJsonArray.Js
     }
 
     @Override
-    public void gotResponse(JSONArray response, String dataKey) {
-        Toast.makeText(this, dataKey + " : \n\n" + response, Toast.LENGTH_SHORT).show();
+    public void RohitAlertDialogInputSubmitted(String output, String dataKey) {
+        if (dataKey.equalsIgnoreCase("name")) {
+            Toast.makeText(this, dataKey + " " + output, Toast.LENGTH_SHORT).show();
+        } else if (dataKey.equalsIgnoreCase("surname")) {
+            Toast.makeText(this, dataKey + " " + output, Toast.LENGTH_SHORT).show();
+        }
+
     }
+
+    @Override
+    public void RohitAlertDialogInputDissmissed(String dataKey) {
+        Toast.makeText(this, dataKey + " Empty", Toast.LENGTH_SHORT).show();
+    }
+
+//    @Override
+//    public void selectedFromAlertDialogList(String selected) {
+//        Toast.makeText(this, "" + selected, Toast.LENGTH_SHORT).show();
+//    }
+//
+//    @Override
+//    public void AlertDialogWithListDismissed() {
+//        Toast.makeText(this, "dissmised", Toast.LENGTH_SHORT).show();
+//    }
 
 //    @Override
 ////    public void DownloadComplete(String filePath) {
