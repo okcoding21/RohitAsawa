@@ -10,11 +10,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.teamup.rohitasawa_library.RohiAds;
 import com.teamup.rohitasawa_library.RohitAlertDialogInput;
 import com.teamup.rohitasawa_library.RohitBackPressed;
 import com.teamup.rohitasawa_library.RohitPermissions;
 
-public class MainActivity extends AppCompatActivity implements RohitAlertDialogInput.InputDialogMethods {
+public class MainActivity extends AppCompatActivity implements RohiAds.Ads {
 
     Button button, button2;
 
@@ -35,19 +36,21 @@ public class MainActivity extends AppCompatActivity implements RohitAlertDialogI
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RohitAlertDialogInput.setDataley("name");
-                RohitAlertDialogInput.showInputDialog(MainActivity.this, "Enter Name : ", true, false);
+                RohiAds.ShowAd(MainActivity.this, "This is test Ad", "https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2017/12/07/Photos/Processed/surf-kNuE--621x414@LiveMint.jpg", "https://www.thebalancesmb.com/marketing-vs-advertising-what-s-the-difference-2294825");
+
             }
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RohitAlertDialogInput.setDataley("surname");
-                RohitAlertDialogInput.showInputDialog(MainActivity.this, "Enter Surname : ", true, true);
+
             }
         });
 
+
+//         RohitAlertDialogInput.setDataley("name");
+//                RohitAlertDialogInput.showInputDialog(MainActivity.this, "Enter Name : ", true, false);
 
 //           List<String> data = new ArrayList<>();
 //                data.add("Rohit");
@@ -461,19 +464,29 @@ public class MainActivity extends AppCompatActivity implements RohitAlertDialogI
 
     }
 
-    @Override
-    public void RohitAlertDialogInputSubmitted(String output, String dataKey) {
-        if (dataKey.equalsIgnoreCase("name")) {
-            Toast.makeText(this, dataKey + " " + output, Toast.LENGTH_SHORT).show();
-        } else if (dataKey.equalsIgnoreCase("surname")) {
-            Toast.makeText(this, dataKey + " " + output, Toast.LENGTH_SHORT).show();
-        }
+//    @Override
+//    public void RohitAlertDialogInputSubmitted(String output, String dataKey) {
+//        if (dataKey.equalsIgnoreCase("name")) {
+//            Toast.makeText(this, dataKey + " " + output, Toast.LENGTH_SHORT).show();
+//        } else if (dataKey.equalsIgnoreCase("surname")) {
+//            Toast.makeText(this, dataKey + " " + output, Toast.LENGTH_SHORT).show();
+//        }
+//
+//    }
+//
+//    @Override
+//    public void RohitAlertDialogInputDissmissed(String dataKey) {
+//        Toast.makeText(this, dataKey + " Empty", Toast.LENGTH_SHORT).show();
+//    }
 
+    @Override
+    public void AdClosed() {
+        Toast.makeText(this, "Ad Closed", Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void RohitAlertDialogInputDissmissed(String dataKey) {
-        Toast.makeText(this, dataKey + " Empty", Toast.LENGTH_SHORT).show();
+    public void AdClicked() {
+        Toast.makeText(this, "Ad Clicked", Toast.LENGTH_SHORT).show();
     }
 
 //    @Override
