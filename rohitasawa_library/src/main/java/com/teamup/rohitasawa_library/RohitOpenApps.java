@@ -1,15 +1,22 @@
 package com.teamup.rohitasawa_library;
 
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
+import android.os.StrictMode;
 import android.provider.Settings;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -103,6 +110,59 @@ public class RohitOpenApps {
                     Settings.Secure.LOCATION_MODE_OFF);
             return (mode != Settings.Secure.LOCATION_MODE_OFF);
 
+        }
+    }
+
+
+    public static void byPackageName(Context context, String packageName) {
+        PackageManager pm = context.getPackageManager();
+        Intent launchIntent = pm.getLaunchIntentForPackage("" + packageName);
+        if (launchIntent != null) {
+            context.startActivity(launchIntent);
+        } else {
+            Toast.makeText(context, "No App found", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+//    *******************************************************************************************************
+
+    public static void openDownloads(@NonNull Activity activity) {
+        if (isSamsung()) {
+            Intent intent = activity.getPackageManager()
+                    .getLaunchIntentForPackage("com.sec.android.app.myfiles");
+            intent.setAction("samsung.myfiles.intent.action.LAUNCH_MY_FILES");
+            intent.putExtra("samsung.myfiles.intent.extra.START_PATH",
+                    getDownloadsFile().getPath());
+            activity.startActivity(intent);
+        } else activity.startActivity(new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS));
+    }
+
+    public static boolean isSamsung() {
+        String manufacturer = Build.MANUFACTURER;
+        if (manufacturer != null) return manufacturer.toLowerCase().equals("samsung");
+        return false;
+    }
+
+    public static File getDownloadsFile() {
+        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+    }
+
+//    *******************************************************************************************************
+
+
+    public static void openFolder(String location, Context context) {
+        // location = "/sdcard/my_folder";
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            Uri mydir = Uri.parse("file://" + location);
+            intent.setDataAndType(mydir, "application/*");    // or use */*
+            context.startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(context, "163 : " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
         }
     }
 }

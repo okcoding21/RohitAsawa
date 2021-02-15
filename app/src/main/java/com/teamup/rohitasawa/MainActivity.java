@@ -1,21 +1,37 @@
 package com.teamup.rohitasawa;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.teamup.rohitasawa_library.InbuiltListenerExample;
 import com.teamup.rohitasawa_library.RohiAds;
 import com.teamup.rohitasawa_library.RohitAlertDialogInput;
 import com.teamup.rohitasawa_library.RohitBackPressed;
+import com.teamup.rohitasawa_library.RohitBitmapsTheory;
+import com.teamup.rohitasawa_library.RohitContactPicker;
+import com.teamup.rohitasawa_library.RohitDirectResponseListen;
+import com.teamup.rohitasawa_library.RohitHandlers;
+import com.teamup.rohitasawa_library.RohitJsonArray;
+import com.teamup.rohitasawa_library.RohitNotification;
+import com.teamup.rohitasawa_library.RohitOpenApps;
 import com.teamup.rohitasawa_library.RohitPermissions;
+import com.teamup.rohitasawa_library.RohitToast;
 
-public class MainActivity extends AppCompatActivity implements RohiAds.Ads {
+import org.json.JSONArray;
+
+public class MainActivity extends AppCompatActivity {
 
     Button button, button2;
 
@@ -30,13 +46,14 @@ public class MainActivity extends AppCompatActivity implements RohiAds.Ads {
 
         button2 = findViewById(R.id.button2);
         button = findViewById(R.id.button);
+        img = findViewById(R.id.img);
 
-        RohitPermissions.READ_WRITE_STORAAGE(this, 512);
+        RohitJsonArray.setContext(this);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RohiAds.ShowAd(MainActivity.this, "This is test Ad", "https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2017/12/07/Photos/Processed/surf-kNuE--621x414@LiveMint.jpg", "https://www.thebalancesmb.com/marketing-vs-advertising-what-s-the-difference-2294825");
+
 
             }
         });
@@ -45,8 +62,42 @@ public class MainActivity extends AppCompatActivity implements RohiAds.Ads {
             @Override
             public void onClick(View view) {
 
+
             }
         });
+
+
+//         RohitDirectResponseListen dir = new RohitDirectResponseListen(MainActivity.this);
+//                dir.getResponseFromUrl(new RohitDirectResponseListen.ResponseListener() {
+//                    @Override
+//                    public void responser(String response) {
+//                        Toast.makeText(MainActivity.this, "" + response, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                dir.getResponseFromUrlMethod("http://novoagri.in/DeveloperFolder/api_agent_history.php");
+//
+
+
+//        RohitContactPicker.pickContact(MainActivity.this, 555);
+
+//        RohitToast.showToast(getApplicationContext(), "hello");
+
+//          Bitmap imgBit = RohitBitmapsTheory.getBitmapFromURL("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Noto_Emoji_KitKat_263a.svg/1200px-Noto_Emoji_KitKat_263a.svg.png");
+//                img.setImageBitmap(imgBit);
+//                RohitNotification.AnnoyingNotification(MainActivity.this, "Hello Buddy", "This is cool description", "", R.drawable.lock, imgBit);
+
+//        RohitHandlers.run(this, 2000, 1);
+//        RohitHandlers.run(this, 3000, 2);
+//        RohitHandlers.run(this, 4000, 3);
+
+
+//        RohitOpenApps.openFolder("/storage/0/DCIM", MainActivity.this);
+
+//        RohitOpenApps.openDownloads(MainActivity.this);
+
+//        RohitOpenApps.byPackageName(MainActivity.this, "com.android.chrome");
+
+//        RohiAds.ShowAd(MainActivity.this, "", "https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2017/12/07/Photos/Processed/surf-kNuE--621x414@LiveMint.jpg", "https://www.thebalancesmb.com/marketing-vs-advertising-what-s-the-difference-2294825");
 
 
 //         RohitAlertDialogInput.setDataley("name");
@@ -434,6 +485,14 @@ public class MainActivity extends AppCompatActivity implements RohiAds.Ads {
 //
 //    }
 
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == 555) {
+//            RohitContactPicker.contactReader(MainActivity.this, data);
+//        }
+//    }
 
     @Override
     protected void onResume() {
@@ -465,6 +524,16 @@ public class MainActivity extends AppCompatActivity implements RohiAds.Ads {
     }
 
 //    @Override
+//    public void details(String number) {
+//
+//    }
+
+//    @Override
+//    public void play(int code) {
+//        Toast.makeText(this, "hey its " + code, Toast.LENGTH_SHORT).show();
+//    }
+
+//    @Override
 //    public void RohitAlertDialogInputSubmitted(String output, String dataKey) {
 //        if (dataKey.equalsIgnoreCase("name")) {
 //            Toast.makeText(this, dataKey + " " + output, Toast.LENGTH_SHORT).show();
@@ -478,16 +547,21 @@ public class MainActivity extends AppCompatActivity implements RohiAds.Ads {
 //    public void RohitAlertDialogInputDissmissed(String dataKey) {
 //        Toast.makeText(this, dataKey + " Empty", Toast.LENGTH_SHORT).show();
 //    }
+//
+//    @Override
+//    public void AdClosed() {
+//
+//    }
+//
+//    @Override
+//    public void AdClicked() {
+//
+//    }
 
-    @Override
-    public void AdClosed() {
-        Toast.makeText(this, "Ad Closed", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void AdClicked() {
-        Toast.makeText(this, "Ad Clicked", Toast.LENGTH_SHORT).show();
-    }
+//    @Override
+//    public void gotResponse(JSONArray response, String dataKey) {
+//
+//    }
 
 //    @Override
 //    public void selectedFromAlertDialogList(String selected) {

@@ -81,7 +81,6 @@ public class RohiAds {
             }
         });
 
-
         closeImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,5 +102,6 @@ public class RohiAds {
         public void AdClosed();
 
         public void AdClicked();
+
     }
 }

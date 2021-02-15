@@ -25,21 +25,17 @@ public class RohitSecurity {
             Intent i = keyguardManager.createConfirmDeviceCredentialIntent(context.getResources().getString(R.string.unlock), context.getResources().getString(R.string.confirm_pattern));
             try {
                 //Start activity for result
-                ((Activity)context).startActivityForResult(i, LOCK_REQUEST_CODE);
+                ((Activity) context).startActivityForResult(i, LOCK_REQUEST_CODE);
             } catch (Exception e) {
 
-                //If some exception occurs means Screen lock is not set up please set screen lock
-                //Open Security screen directly to enable patter lock
                 Intent intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
                 try {
 
                     //Start activity for result
-                    ((Activity)context).startActivityForResult(intent, SECURITY_SETTING_REQUEST_CODE);
+                    ((Activity) context).startActivityForResult(intent, SECURITY_SETTING_REQUEST_CODE);
                 } catch (Exception ex) {
 
-                    //If app is unable to find any Security settings then user has to set screen lock manually
-
-                    Toast.makeText(context, ""+context.getResources().getString(R.string.setting_label), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "" + context.getResources().getString(R.string.setting_label), Toast.LENGTH_SHORT).show();
 
                 }
             }

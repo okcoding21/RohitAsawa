@@ -19,7 +19,6 @@ public class RohitVideoPicker {
         ((Activity) context).startActivityForResult(intent, VIDEO_PICKER_CODE);
     }
 
-
     public static String getPath(Context context, Intent data) {
         if (data != null) {
             Uri selectedImageUri = data.getData();
