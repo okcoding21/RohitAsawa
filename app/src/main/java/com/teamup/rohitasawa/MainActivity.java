@@ -67,14 +67,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-//         RohitDirectResponseListen dir = new RohitDirectResponseListen(MainActivity.this);
-//                dir.getResponseFromUrl(new RohitDirectResponseListen.ResponseListener() {
-//                    @Override
-//                    public void responser(String response) {
-//                        Toast.makeText(MainActivity.this, "" + response, Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//                dir.getResponseFromUrlMethod("http://novoagri.in/DeveloperFolder/api_agent_history.php");
+        RohitDirectResponseListen dir = new RohitDirectResponseListen(MainActivity.this);
+        dir.getResponseFromUrl(new RohitDirectResponseListen.ResponseListener() {
+            @Override
+            public void responser(String response, String datakey) {
+                Toast.makeText(MainActivity.this, datakey + "" + response, Toast.LENGTH_SHORT).show();
+            }
+        });
+        dir.getResponseFromUrlMethod("http://novoagri.in/DeveloperFolder/api_agent_history.php", "cool");
 //
 
 

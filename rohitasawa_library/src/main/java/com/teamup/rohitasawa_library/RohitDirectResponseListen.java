@@ -26,9 +26,11 @@ public class RohitDirectResponseListen {
 
     public static ResponseListener listener;
     public Context contextThis;
+    public String datakeyIs = "";
+
 
     public interface ResponseListener {
-        public void responser(String response);
+        public void responser(String response, String datakey);
     }
 
     public RohitDirectResponseListen(Context context) {
@@ -40,7 +42,8 @@ public class RohitDirectResponseListen {
         this.listener = listener;
     }
 
-    public void getResponseFromUrlMethod(String url) {
+    public void getResponseFromUrlMethod(String url, String datakey) {
+        datakeyIs = datakey;
         new getResponse().execute("" + url);
     }
 
@@ -103,7 +106,7 @@ public class RohitDirectResponseListen {
 
             try {
 
-                listener.responser(result);
+                listener.responser(result, datakeyIs);
 
             } catch (Exception c) {
 
