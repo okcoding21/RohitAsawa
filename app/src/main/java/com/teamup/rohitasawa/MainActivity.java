@@ -22,6 +22,7 @@ import com.teamup.rohitasawa_library.RohitBackPressed;
 import com.teamup.rohitasawa_library.RohitBitmapsTheory;
 import com.teamup.rohitasawa_library.RohitContactPicker;
 import com.teamup.rohitasawa_library.RohitDirectResponseListen;
+import com.teamup.rohitasawa_library.RohitDirectResponseListenNew;
 import com.teamup.rohitasawa_library.RohitHandlers;
 import com.teamup.rohitasawa_library.RohitJsonArray;
 import com.teamup.rohitasawa_library.RohitNotification;
@@ -34,7 +35,7 @@ import org.json.JSONArray;
 public class MainActivity extends AppCompatActivity {
 
     Button button, button2;
-
+    TextView txt1, txt2;
     ImageView img;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         button2 = findViewById(R.id.button2);
+        txt1 = findViewById(R.id.txt1);
+        txt2 = findViewById(R.id.txt2);
         button = findViewById(R.id.button);
         img = findViewById(R.id.img);
 
@@ -58,24 +61,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+//        http://novoagri.in/DeveloperFolder/api_agent_history.php
+
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                RohitDirectResponseListenNew.getResponseFromUrl("http://novoagri.in/DeveloperFolder/api_agent_history.php", MainActivity.this, new RohitDirectResponseListenNew.ResponseListener() {
+                    @Override
+                    public void responser(String response) {
+                        txt1.setText("from 1st : " + response);
+                    }
+                });
+
+
+                RohitDirectResponseListenNew.getResponseFromUrl("http://novoagri.in/DeveloperFolder/api_gatepasses.php", MainActivity.this, new RohitDirectResponseListenNew.ResponseListener() {
+                    @Override
+                    public void responser(String response) {
+                        txt2.setText("from 2nd : " + response);
+                    }
+                });
+
 
             }
         });
-
-
-        RohitDirectResponseListen dir = new RohitDirectResponseListen(MainActivity.this);
-        dir.getResponseFromUrl(new RohitDirectResponseListen.ResponseListener() {
-            @Override
-            public void responser(String response, String datakey) {
-                Toast.makeText(MainActivity.this, datakey + "" + response, Toast.LENGTH_SHORT).show();
-            }
-        });
-        dir.getResponseFromUrlMethod("http://novoagri.in/DeveloperFolder/api_agent_history.php", "cool");
-//
 
 
 //        RohitContactPicker.pickContact(MainActivity.this, 555);
