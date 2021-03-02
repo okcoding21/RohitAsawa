@@ -57,35 +57,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
             }
         });
-
-//        http://novoagri.in/DeveloperFolder/api_agent_history.php
-
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                RohitDirectResponseListenNew.getResponseFromUrl("http://novoagri.in/DeveloperFolder/api_agent_history.php", MainActivity.this, new RohitDirectResponseListenNew.ResponseListener() {
-                    @Override
-                    public void responser(String response) {
-                        txt1.setText("from 1st : " + response);
-                    }
-                });
-
-
-                RohitDirectResponseListenNew.getResponseFromUrl("http://novoagri.in/DeveloperFolder/api_gatepasses.php", MainActivity.this, new RohitDirectResponseListenNew.ResponseListener() {
-                    @Override
-                    public void responser(String response) {
-                        txt2.setText("from 2nd : " + response);
-                    }
-                });
-
-
             }
         });
+
+//        //        http://novoagri.in/DeveloperFolder/api_agent_history.php
+
+//                        RohitDirectResponseListenNew.getResponseFromUrl("http://novoagri.in/DeveloperFolder/api_agent_history.php", MainActivity.this, new RohitDirectResponseListenNew.ResponseListener() {
+//                    @Override
+//                    public void responser(String response) {
+//                        txt1.setText("from 1st : " + response);
+//                    }
+//                });
 
 
 //        RohitContactPicker.pickContact(MainActivity.this, 555);
