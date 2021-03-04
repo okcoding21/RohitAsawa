@@ -16,7 +16,7 @@ public class RohiBottomSheetDialog {
 
         view2 = ((Activity) context).getLayoutInflater().inflate(layout, null);
         view2.setBackgroundResource(R.drawable.rounded_dialog);
-        BottomSheetDialog dialog = new BottomSheetDialog(context);
+         dialog = new BottomSheetDialog(context);
         dialog.setContentView(view2);
         dialog.setCancelable(cancelable);
         dialog.show();
@@ -27,7 +27,7 @@ public class RohiBottomSheetDialog {
 
         view2 = ((Activity) context).getLayoutInflater().inflate(layout, null);
         view2.setBackgroundResource(R.drawable.rounded_dialog);
-        BottomSheetDialog dialog = new BottomSheetDialog(context);
+         dialog = new BottomSheetDialog(context);
         dialog.setContentView(view2);
         dialog.setCancelable(cancelable);
         dialog.show();
