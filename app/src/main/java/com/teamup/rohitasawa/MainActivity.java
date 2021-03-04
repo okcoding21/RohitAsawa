@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.teamup.rohitasawa_library.InbuiltListenerExample;
 import com.teamup.rohitasawa_library.RohiAds;
+import com.teamup.rohitasawa_library.RohiBottomSheetDialog;
 import com.teamup.rohitasawa_library.RohitAlertDialogInput;
 import com.teamup.rohitasawa_library.RohitBackPressed;
 import com.teamup.rohitasawa_library.RohitBitmapsTheory;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                RohiBottomSheetDialog.showRounded(MainActivity.this, R.layout.activity_main, false);
             }
         });
 
