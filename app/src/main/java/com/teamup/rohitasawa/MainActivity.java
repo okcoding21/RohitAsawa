@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,10 +26,12 @@ import com.teamup.rohitasawa_library.RohitContactPicker;
 import com.teamup.rohitasawa_library.RohitDirectResponseListen;
 import com.teamup.rohitasawa_library.RohitDirectResponseListenNew;
 import com.teamup.rohitasawa_library.RohitHandlers;
+import com.teamup.rohitasawa_library.RohitHexColor;
 import com.teamup.rohitasawa_library.RohitJsonArray;
 import com.teamup.rohitasawa_library.RohitNotification;
 import com.teamup.rohitasawa_library.RohitOpenApps;
 import com.teamup.rohitasawa_library.RohitPermissions;
+import com.teamup.rohitasawa_library.RohitStorage;
 import com.teamup.rohitasawa_library.RohitToast;
 
 import org.json.JSONArray;
@@ -57,16 +60,19 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                button.setBackgroundColor(Color.parseColor(RohitHexColor.generate()));
             }
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RohiBottomSheetDialog.showRounded(MainActivity.this, R.layout.activity_main, false);
+
             }
         });
+
+//        RohiBottomSheetDialog.showRounded(MainActivity.this, R.layout.activity_main, false);
+
 
 //        //        http://novoagri.in/DeveloperFolder/api_agent_history.php
 

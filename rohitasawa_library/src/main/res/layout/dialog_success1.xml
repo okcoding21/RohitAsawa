@@ -34,6 +34,7 @@
                 android:layout_marginRight="25dp"
                 android:layout_marginBottom="15dp"
                 android:text="Successful"
+                android:gravity="center"
                 android:textColor="#000"
                 android:textSize="27sp"
                 android:textStyle="bold" />
